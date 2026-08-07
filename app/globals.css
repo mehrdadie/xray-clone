@@ -20,15 +20,54 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
   background: var(--accent);
   color: white;
+}
+
+/* Swiper navigation arrows: scale down on mobile to prevent overflow */
+@media (max-width: 640px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    transform: scale(0.65);
+  }
+  .swiper-button-prev {
+    left: -2px;
+  }
+  .swiper-button-next {
+    right: -2px;
+  }
+  /* Swiper pagination dots */
+  .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Prevent horizontal scroll from Reveal animations */
+@media (max-width: 640px) {
+  section {
+    overflow-x: clip;
+  }
+}
+
+/* Longer tap feedback for buttons on mobile */
+@media (max-width: 640px) {
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }

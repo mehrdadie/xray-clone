@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "XRAY Clone",
-  description: "Clone of xray.tech homepage",
+  title: "DataLift — Connect Your Systems. Lift Your Business.",
+  description: "UK-based data, automation, and AI specialists. We connect your CRM, sales, marketing, and payment systems so your data flows — and your business grows.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
