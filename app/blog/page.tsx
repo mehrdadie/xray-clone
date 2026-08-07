@@ -9,8 +9,8 @@ export default function BlogPage() {
       title="Blog"
       subtitle="Practical notes on AI, automation, and modern operations for teams that want more than theory."
     >
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="py-10 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { tag: 'AI', title: 'Creating Team-wide Standards with Claude Skills', image: '/assets/blog-1.png' },
             { tag: 'Tutorial', title: 'Google Sheets To Airtable, Minus The Data Entry', image: '/assets/blog-2.png' },

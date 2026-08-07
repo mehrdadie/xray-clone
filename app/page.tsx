@@ -71,7 +71,7 @@ export default function Home() {
         <main className="flex-1">
           {/* Hero */}
           <section className="relative overflow-hidden">
-            <div className="mx-auto max-w-7xl px-6 pt-16 pb-10 lg:pt-24 lg:pb-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-8 md:pt-16 md:pb-10 lg:pt-24 lg:pb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <div className="max-w-xl">
                   <Reveal>
@@ -119,11 +119,11 @@ export default function Home() {
 
           {/* Metrics */}
           <section className="border-y border-black/5 bg-white/40">
-            <div className="mx-auto max-w-7xl px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 md:py-10 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {metrics.map((m, i) => (
                 <Reveal key={m.label} delay={i * 0.05}>
                   <div>
-                    <div className="text-3xl md:text-4xl font-bold text-[var(--foreground)]">{m.value}</div>
+                    <div className="text-2xl md:text-4xl font-bold text-[var(--foreground)]">{m.value}</div>
                     <div className="block text-sm font-medium text-[var(--foreground)]/70 mt-1">{m.label}</div>
                   </div>
                 </Reveal>
@@ -132,8 +132,8 @@ export default function Home() {
           </section>
 
           {/* Obsessed */}
-          <section className="py-16">
-            <div className="mx-auto max-w-7xl px-6">
+          <section className="py-12 md:py-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
                 <h2 className="text-2xl md:text-5xl font-bold tracking-tight mb-5">Obsessed with outcomes, not apps</h2>
               </Reveal>
@@ -144,9 +144,9 @@ export default function Home() {
                 </p>
               </Reveal>
               <Reveal delay={0.2}>
-                <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   {['NetSuite', 'SAP', 'Salesforce', 'QuickBooks'].map((tool) => (
-                    <div key={tool} className="rounded-2xl bg-white/60 p-6 text-center text-base font-medium shadow-sm">
+                    <div key={tool} className="rounded-2xl bg-white/60 p-4 md:p-6 text-center text-sm md:text-base font-medium shadow-sm">
                       {tool}
                     </div>
                   ))}
@@ -156,9 +156,9 @@ export default function Home() {
           </section>
 
           {/* Client Stories */}
-          <section className="py-16 bg-white/40">
-            <div className="mx-auto max-w-7xl px-6">
-              <div className="flex items-end justify-between mb-8">
+          <section className="py-12 md:py-16 bg-white/40">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-8 gap-4">
                 <div className="flex-1">
                   <Reveal>
                     <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Client stories.</h2>
@@ -167,7 +167,7 @@ export default function Home() {
                 </div>
                 <Link
                   href="/case-studies"
-                  className="hidden md:inline-flex rounded-full border border-[var(--foreground)] px-5 py-2 text-sm font-medium hover:bg-[var(--foreground)]/5"
+                  className="inline-flex rounded-full border border-[var(--foreground)] px-5 py-2 text-sm font-medium hover:bg-[var(--foreground)]/5 self-start sm:self-auto"
                 >
                   View All Case Studies
                 </Link>
@@ -212,8 +212,8 @@ export default function Home() {
           </section>
 
           {/* Process Pillars */}
-          <section className="py-16">
-            <div className="mx-auto max-w-7xl px-6">
+          <section className="py-12 md:py-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Process Pillars</h2>
                 <p className="mb-10 max-w-3xl text-[var(--foreground)]/80">
@@ -228,10 +228,10 @@ export default function Home() {
                   { title: 'Continuous Improvement:', desc: 'As your needs evolve, so do our solutions.', img: 'pillar-4.svg' },
                 ].map((item, i) => (
                   <Reveal key={item.title} delay={i * 0.08}>
-                    <div className="flex gap-5 rounded-2xl bg-white/60 p-6 shadow-sm">
-                      <Image src={`/assets/${item.img}`} alt="" width={100} height={100} className="h-20 w-20 shrink-0" />
+                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 rounded-2xl bg-white/60 p-5 md:p-6 shadow-sm">
+                      <Image src={`/assets/${item.img}`} alt="" width={100} height={100} className="h-16 w-16 sm:h-20 sm:w-20 shrink-0 mx-auto sm:mx-0" />
                       <div>
-                        <h3 className="text-xl font-semibold">{item.title}</h3>
+                        <h3 className="text-lg md:text-xl font-semibold">{item.title}</h3>
                         <p className="mt-2 text-[var(--foreground)]/80 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
@@ -242,10 +242,10 @@ export default function Home() {
           </section>
 
           {/* Pricing Models */}
-          <section className="py-16 bg-white/40">
-            <div className="mx-auto max-w-7xl px-6">
+          <section className="py-12 md:py-16 bg-white/40">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Two Models, One Mission: Your Time.</h2>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Two Models, One Mission: Your Time.</h2>
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="max-w-3xl text-lg leading-relaxed text-[var(--foreground)]/80">
@@ -314,8 +314,8 @@ export default function Home() {
           </section>
 
           {/* Workshops Link */}
-          <section className="py-12">
-            <div className="mx-auto max-w-7xl px-6 text-center">
+          <section className="py-10 md:py-12">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
               <Reveal>
                 <Link
                   href="/xray-workshops"
@@ -328,15 +328,15 @@ export default function Home() {
           </section>
 
           {/* Blog */}
-          <section className="py-16">
-            <div className="mx-auto max-w-7xl px-6">
-              <div className="flex items-end justify-between mb-8">
+          <section className="py-12 md:py-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-8 gap-4">
                 <Reveal>
                   <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Blog</h2>
                 </Reveal>
                 <Link
                   href="/blog"
-                  className="hidden md:inline-flex rounded-full border border-[var(--foreground)] px-5 py-2 text-sm font-medium hover:bg-[var(--foreground)]/5"
+                  className="inline-flex rounded-full border border-[var(--foreground)] px-5 py-2 text-sm font-medium hover:bg-[var(--foreground)]/5 self-start sm:self-auto"
                 >
                   View All Articles
                 </Link>
@@ -365,10 +365,10 @@ export default function Home() {
 
           {/* Bottom CTA */}
           <section className="relative overflow-hidden bg-white/50">
-            <div className="mx-auto max-w-7xl px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
               <Reveal>
                 <div>
-                  <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Ready to transform your everyday?</h2>
+                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Ready to transform your everyday?</h2>
                   <p className="mt-4 max-w-xl text-lg text-[var(--foreground)]/80">
                     Schedule a free consultation to discover how we can transform your business processes.
                   </p>

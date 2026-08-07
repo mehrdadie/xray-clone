@@ -9,8 +9,8 @@ export default function ProductsPage() {
       title="Products"
       subtitle="Tools made for solved workflows — built for teams that already use the best platforms, and want them to actually work together."
     >
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="py-10 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
               name: 'XR SEARCH',
@@ -31,7 +31,7 @@ export default function ProductsPage() {
             <Reveal key={product.name}>
               <a
                 href={product.href}
-                className="block rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-md"
+                className="block rounded-2xl bg-white p-5 md:p-8 shadow-sm transition hover:shadow-md"
               >
                 <h3 className="text-xl font-semibold">{product.name}</h3>
                 <p className="mt-3 text-[var(--foreground)]/80 leading-relaxed">{product.desc}</p>
@@ -41,10 +41,10 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white/40">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="py-12 md:py-16 bg-white/40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Built on what you already use</h2>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-4">Built on what you already use</h2>
             <p className="max-w-3xl text-[var(--foreground)]/80 text-lg leading-relaxed">
               Our products layer on top of Salesforce, QuickBooks, NetSuite, and common SaaS stacks — no rip and replace.
             </p>

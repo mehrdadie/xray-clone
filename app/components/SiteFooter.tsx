@@ -60,19 +60,19 @@ const columns = [
 export default function SiteFooter() {
   return (
     <footer className="bg-[var(--foreground)] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-14 grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10">
         <div className="md:col-span-1">
-          <h3 className="text-xl font-semibold">Your workflow, but smarter.</h3>
-          <p className="mt-3 text-white/70">Hear from the humans at XRAY and learn how to get AI and automation working in your workflows.</p>
+          <h3 className="text-lg md:text-xl font-semibold">Your workflow, but smarter.</h3>
+          <p className="mt-3 text-white/70 text-sm md:text-base">Hear from the humans at XRAY and learn how to get AI and automation working in your workflows.</p>
         </div>
-        <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+        <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-6 text-sm">
           {columns.map((col) => (
             <FooterLinks key={col.title} title={col.title} links={col.links} />
           ))}
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 flex flex-col gap-4 items-center md:flex-row md:justify-between">
           <div className="text-white/70 text-sm">© XRAY Tech, Inc. 2020 - Established 2020</div>
           <form className="flex w-full md:w-auto gap-2" onSubmit={(e) => e.preventDefault()}>
             <input
@@ -82,7 +82,7 @@ export default function SiteFooter() {
             />
             <button className="rounded-full bg-white px-4 py-2 text-sm font-medium text-[var(--foreground)] hover:bg-white/90">→</button>
           </form>
-          <div className="flex gap-4">
+          <div className="flex gap-4 order-first md:order-last">
             <a
               href="https://www.linkedin.com/company/xray-tech"
               target="_blank"

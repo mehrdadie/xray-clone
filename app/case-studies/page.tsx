@@ -30,11 +30,11 @@ export default function CaseStudiesPage() {
       title="Case Studies"
       subtitle="Real results from businesses we've transformed — measured in hours saved, emails avoided, and focus returned."
     >
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-6 space-y-6">
+      <section className="py-10 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 space-y-6">
           {testimonials.map((t, i) => (
             <Reveal key={t.author} delay={i * 0.08}>
-              <div className="rounded-2xl bg-white p-8 shadow-sm">
+              <div className="rounded-2xl bg-white p-5 md:p-8 shadow-sm">
                 <p className="text-xl md:text-2xl leading-relaxed font-medium">“{t.quote}”</p>
                 <div className="mt-6">
                   <div className="font-semibold">{t.author}</div>

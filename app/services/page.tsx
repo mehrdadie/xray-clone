@@ -9,8 +9,8 @@ export default function ServicesPage() {
       title="Services"
       subtitle="From hands-on support to full-service workflow transformation, our services are built around one outcome: your time back."
     >
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="py-10 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
               name: 'XRAY Hourly',
@@ -31,7 +31,7 @@ export default function ServicesPage() {
             <Reveal key={service.name}>
               <a
                 href={service.href}
-                className="block rounded-2xl bg-white p-8 shadow-sm transition hover:shadow-md"
+                className="block rounded-2xl bg-white p-5 md:p-8 shadow-sm transition hover:shadow-md"
               >
                 <h3 className="text-xl font-semibold">{service.name}</h3>
                 <p className="mt-3 text-[var(--foreground)]/80 leading-relaxed">{service.desc}</p>
@@ -41,10 +41,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white/40">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="py-12 md:py-16 bg-white/40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">How we work</h2>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-4">How we work</h2>
             <p className="max-w-3xl text-[var(--foreground)]/80 text-lg leading-relaxed">
               Every engagement starts with diagnosis, then moves into implementation with measurable milestones. We use the tools you already know, so adoption is fast and results are durable.
             </p>
@@ -56,7 +56,7 @@ export default function ServicesPage() {
               { title: 'Scale', body: 'We hand off playbooks and training so your team can run without us.' },
             ].map((step, i) => (
               <Reveal key={step.title} delay={i * 0.08}>
-                <div className="rounded-2xl bg-white p-6 shadow-sm">
+                <div className="rounded-2xl bg-white p-5 md:p-6 shadow-sm">
                   <div className="text-sm font-semibold text-[var(--accent)]">Step {i + 1}</div>
                   <h3 className="mt-2 text-xl font-semibold">{step.title}</h3>
                   <p className="mt-2 text-[var(--foreground)]/80 leading-relaxed">{step.body}</p>

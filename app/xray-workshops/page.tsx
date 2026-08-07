@@ -10,10 +10,10 @@ export default function WorkshopsPage() {
       subtitle="In-person and remote workshops designed to teach your team how to work in the future — with practical education, not theory."
     >
       <section className="py-12 bg-white/40">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
           {['Practical Education', 'Emerging Tool Deployment', 'Safety Standards', 'Operational Clarity', 'Lasting ROI'].map((item) => (
             <Reveal key={item}>
-              <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <div className="rounded-2xl bg-white p-5 md:p-6 shadow-sm">
                 <h3 className="text-lg font-semibold">{item}</h3>
               </div>
             </Reveal>
@@ -21,8 +21,8 @@ export default function WorkshopsPage() {
         </div>
       </section>
 
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-10 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
           <Reveal>
             <div>
               <h2 className="text-2xl font-semibold">Intensive workshops for off-sites and up-skilling</h2>
@@ -30,7 +30,7 @@ export default function WorkshopsPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
+            <div className="rounded-2xl bg-white p-5 md:p-6 shadow-sm">
               <h3 className="font-semibold">Our Packages</h3>
               <div className="mt-4 space-y-4">
                 <div className="rounded-xl border border-black/5 p-4">
@@ -49,10 +49,10 @@ export default function WorkshopsPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white/40">
-        <div className="mx-auto max-w-7xl px-6 text-center">
+      <section className="py-12 md:py-16 bg-white/40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-bold">Ready to transform your everyday?</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">Ready to transform your everyday?</h2>
             <a href="#" className="mt-6 inline-flex rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-white hover:bg-[var(--foreground)]/90">Book 15 Minutes Free</a>
           </Reveal>
         </div>

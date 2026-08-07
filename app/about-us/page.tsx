@@ -9,8 +9,8 @@ export default function AboutUsPage() {
       title="About Us"
       subtitle="We're a small team of operators and engineers obsessed with one thing: making your workflows actually work."
     >
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <section className="py-10 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
           <Reveal>
             <div>
               <h3 className="text-xl font-semibold">What we do</h3>
@@ -30,10 +30,10 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white/40">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="py-12 md:py-16 bg-white/40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10">Our Process Pillars</h2>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-10">Our Process Pillars</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
@@ -43,7 +43,7 @@ export default function AboutUsPage() {
               { title: 'Continuous Improvement:', desc: 'As your needs evolve, so do our solutions.' },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
-                <div className="rounded-2xl bg-white p-6 shadow-sm">
+                <div className="rounded-2xl bg-white p-5 md:p-6 shadow-sm">
                   <h3 className="text-xl font-semibold">{item.title}</h3>
                   <p className="mt-2 text-[var(--foreground)]/80 leading-relaxed">{item.desc}</p>
                 </div>
