@@ -201,12 +201,7 @@ export default function Home() {
               <Reveal delay={0.2}>
                 <div className="mt-10 md:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-5 stagger">
                   {allTools.map((tool) => (
-                    <div
-                      key={tool}
-                      className="rounded-2xl bg-white/70 backdrop-blur border border-black/5 p-4 md:p-6 text-center text-sm md:text-base font-medium shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5"
-                    >
-                      {tool}
-                    </div>
+                    <ToolBadge key={tool} name={tool} size="sm" />
                   ))}
                 </div>
               </Reveal>
