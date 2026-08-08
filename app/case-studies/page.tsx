@@ -69,6 +69,112 @@ const caseStudies = [
     tools: ['Salesforce', 'Chargebee', 'n8n'],
     services: ['Real-time Dashboards', 'Revenue Analytics', 'Churn Alert Automation', 'System Integration'],
   },
+  {
+    id: 'property-events-chelmsford',
+    company: 'Property Training & Events Company',
+    location: 'Chelmsford, UK',
+    industry: 'Property Education & Events',
+    author: 'Event Coordinator',
+    avatar: 'A',
+    quote:
+      "Our event bookings, follow-ups, and payment tracking used to live in three different places. DataLift connected everything so our team can see exactly who booked, who paid, and who needs a follow-up — all in one place.",
+    problem:
+      "This property training company ran large in-person events and webinars. Event registrations were tracked in a separate booking platform, payments in Stripe, and follow-up communications in a separate email tool. After every event, the team spent 2-3 days manually matching attendees with payments and uploading lists to the email tool for follow-up. Some attendees were missed, some were emailed twice, and there was no way to track which events generated the most revenue per attendee.",
+    solution:
+      "DataLift automated the entire event lifecycle. When someone registered, their record was created in Salesforce automatically. When they paid via Stripe, the payment status was synced instantly. After each event, the attendee list was automatically segmented in Salesforce and synced to the email platform for targeted follow-up sequences. A dashboard was built showing event revenue, attendance rate, cost per attendee, and follow-up conversion by event type.",
+    results: [
+      { metric: '2-3 days → 0', label: 'Manual post-event processing eliminated' },
+      { metric: 'Zero', label: 'Missed or duplicate follow-ups' },
+      { metric: '28%', label: 'Increase in post-event conversion' },
+    ],
+    tools: ['Salesforce', 'Stripe', 'Email Platform', 'n8n'],
+    services: ['Event Automation', 'Revenue Dashboard', 'Follow-up Sequences', 'System Integration'],
+  },
+  {
+    id: 'sales-training-reading',
+    company: 'UK Sales Training Company',
+    location: 'Reading, UK',
+    industry: 'Sales Training & Coaching',
+    author: 'Head of Operations',
+    avatar: 'K',
+    quote:
+      "We deliver training to hundreds of delegates each month. DataLift built a system that tracks every delegate from booking to completion, automatically sends certificates, and gives us a dashboard of training impact per client. It saved us a full-time admin role.",
+    problem:
+      "A UK sales training company delivered open courses and in-house training to hundreds of delegates per month. Bookings were managed in a CRM, but delegate attendance, course completion, and certificate issuance were all tracked manually in spreadsheets. The team couldn't answer basic questions like 'what's our completion rate?' or 'which clients have pending training credits?' without spending days cross-referencing spreadsheets. Certificate issuance was manual and error-prone.",
+    solution:
+      "DataLift built an automated delegate tracking system connected to the CRM. When a delegate booked, a training record was auto-created. Attendance was tracked via a simple check-in form, and completion status automatically triggered certificate generation via an email automation. A dashboard showed live completion rates, training credits remaining per client, and revenue per training programme. Monthly admin work was reduced to near zero.",
+    results: [
+      { metric: '1 FTE', label: 'Admin role reallocated to higher-value work' },
+      { metric: 'Auto', label: 'Certificate issuance (was manual)' },
+      { metric: '95%', label: 'Course completion tracking accuracy' },
+      { metric: '100+', label: 'Delegates auto-tracked per month' },
+    ],
+    tools: ['CRM', 'Google Sheets', 'Email Platform', 'n8n'],
+    services: ['Delegate Tracking System', 'Certificate Automation', 'Training Dashboard', 'System Integration'],
+  },
+  {
+    id: 'wealth-education-webinars',
+    company: 'Wealth Education Company',
+    location: 'UK-wide',
+    industry: 'Wealth & Property Education',
+    author: 'Marketing Manager',
+    avatar: 'W',
+    quote:
+      "We run webinars every week, but we never knew which ones actually drove sales. DataLift connected our webinar platform to our CRM and payment system so we can finally see the full journey from attendee to paying customer.",
+    problem:
+      "This wealth education company ran weekly webinars to attract new customers. Webinar registrations were in Zoom, leads in Salesforce, and payments in Chargebee — but no system connected them. The marketing team couldn't answer 'which webinars produce the most paying customers?' or 'how long does it take from webinar attendance to purchase?' Budget was being spent on webinars with no visibility into ROI.",
+    solution:
+      "DataLift built a webinar-to-revenue pipeline. Webinar registrations from Zoom were automatically synced to Salesforce as leads. When a lead made a purchase through Chargebee, the system traced it back to the specific webinar they attended. A dashboard showed webinar attendance → purchase conversion rate, average time-to-purchase per webinar topic, and revenue attributed to each webinar. The marketing team could now see which topics drove the highest-value sales.",
+    results: [
+      { metric: 'Full funnel', label: 'Webinar-to-revenue attribution' },
+      { metric: '3.2x', label: 'ROI on top-performing webinar topics' },
+      { metric: '48 hrs', label: 'Average time from webinar to purchase (was unknown)' },
+    ],
+    tools: ['Zoom', 'Salesforce', 'Chargebee', 'n8n'],
+    services: ['Webinar Attribution', 'Revenue Dashboard', 'Lead-to-Sale Tracking', 'System Integration'],
+  },
+  {
+    id: 'telesales-consultancy-manchester',
+    company: 'Telesales Consultancy',
+    location: 'Manchester, UK',
+    industry: 'Telesales & Sales Consultancy',
+    author: 'Operations Lead',
+    avatar: 'D',
+    quote:
+      "We coach telesales teams across the UK. DataLift connected our call tracking, CRM, and reporting so our consultants can see every client's call metrics, pipeline, and conversion rates in one dashboard instead of three different systems.",
+    problem:
+      "A telesales consultancy tracked client call activity in a call analytics platform, pipeline in Salesforce, and delivered weekly performance reports via manually compiled spreadsheets. Consultants spent 4+ hours per week per client building reports. Clients couldn't get real-time visibility into their telesales performance — they had to wait for a weekly emailed spreadsheet.",
+    solution:
+      "DataLift connected the call analytics platform to Salesforce and built a client-facing dashboard. Call volumes, conversion rates, and pipeline value were synced automatically. Each client got a personalised dashboard link showing live telesales performance. Consultants stopped building manual reports entirely — the dashboard became the reporting tool.",
+    results: [
+      { metric: '4 hrs → 0', label: 'Per-client weekly reporting time' },
+      { metric: 'Real-time', label: 'Client access to performance data' },
+      { metric: '15+', label: 'Clients on automated dashboards' },
+    ],
+    tools: ['Call Analytics', 'Salesforce', 'Google Sheets', 'n8n'],
+    services: ['Client Dashboard', 'Call Tracking Integration', 'Automated Reporting', 'System Integration'],
+  },
+  {
+    id: 'property-investment-coaching',
+    company: 'Property Investment Education Company',
+    location: 'UK-wide',
+    industry: 'Property Investment Coaching',
+    author: 'Client Success Manager',
+    avatar: 'T',
+    quote:
+      "Our coaching students used to get lost between systems — booking in one, course access in another, support tickets elsewhere. DataLift created a single student journey so nothing falls through the cracks anymore.",
+    problem:
+      "A property investment education company offered coaching programmes with multiple stages: initial consultation, course enrollment, module access, coaching calls, and ongoing support. Each stage lived in a different system: consultations booked in Calendly, course access in an LMS, coaching calls tracked in a spreadsheet, and support in a helpdesk tool. Students frequently fell through the gaps — some paid but never got course access, others booked coaching calls but the consultant had no context.",
+    solution:
+      "DataLift built a unified student journey system. When a consultation was booked in Calendly, a complete student record was created in Salesforce with a stage tracker. Payment triggered automatic LMS enrollment. Coaching call bookings were synced to the consultant's calendar with full student context attached. A dashboard showed every student's current stage, flagged those stuck between stages for more than 7 days, and tracked overall programme completion rates.",
+    results: [
+      { metric: 'Zero', label: 'Students lost between systems' },
+      { metric: '7-day alert', label: 'Automatic flag for stuck students' },
+      { metric: '42%', label: 'Improvement in programme completion rate' },
+    ],
+    tools: ['Calendly', 'Salesforce', 'LMS', 'Helpdesk', 'n8n'],
+    services: ['Student Journey Automation', 'Stage Tracking Dashboard', 'Alert System', 'System Integration'],
+  },
 ];
 
 export default function CaseStudiesPage() {
@@ -78,24 +184,24 @@ export default function CaseStudiesPage() {
       subtitle="Real results from UK businesses we've helped — measured in hours saved, errors removed, and decisions made faster."
     >
       {/* Hero stats bar */}
-      <section className="pb-8 md:pb-12">
+      <section className="pb-6 md:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 rounded-3xl bg-white/70 border border-black/5 p-5 md:p-8 shadow-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-3xl bg-white/70 border border-black/5 p-4 sm:p-5 md:p-8 shadow-sm">
               <div className="text-center md:text-left">
-                <div className="text-2xl md:text-4xl font-bold text-[var(--accent)]">8+</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">8+</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">UK Businesses Served</div>
               </div>
               <div className="text-center md:text-left">
-                <div className="text-2xl md:text-4xl font-bold text-[var(--accent)]">10k+</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">10k+</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">Hours Automated</div>
               </div>
               <div className="text-center md:text-left">
-                <div className="text-2xl md:text-4xl font-bold text-[var(--accent)]">50+</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">50+</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">Systems Connected</div>
               </div>
               <div className="text-center md:text-left">
-                <div className="text-2xl md:text-4xl font-bold text-[var(--accent)]">99.9%</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">99.9%</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">Uptime Maintained</div>
               </div>
             </div>
@@ -186,7 +292,7 @@ export default function CaseStudiesPage() {
                   <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 flex items-center gap-2">
                     <span className="text-blue-600">📈</span> Results
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                     {cs.results.map((r) => (
                       <div key={r.label} className="rounded-2xl bg-white border border-black/5 p-3 md:p-5 text-center shadow-sm">
                         <div className="text-lg md:text-2xl font-bold text-[var(--accent)]">{r.metric}</div>
