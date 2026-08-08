@@ -2,8 +2,25 @@
 
 import PageShell from '../components/PageShell';
 import Reveal from '../components/Reveal';
+import { useState } from 'react';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`New consultation request from ${formData.name || 'website'}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:hello@datalift.co.uk?subject=${subject}&body=${body}`;
+  };
+
   return (
     <PageShell
       title="Book a Free Consultation"
@@ -12,24 +29,53 @@ export default function ContactPage() {
       <section className="py-6 md:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
           <Reveal>
-            <form className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-5 sm:p-6 md:p-8 shadow-card space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-5 sm:p-6 md:p-8 shadow-card space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium mb-1">Name</label>
-                <input type="text" className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm" placeholder="Your name" />
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm"
+                  placeholder="Your name"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Email</label>
-                <input type="email" className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm" placeholder="you@company.co.uk" />
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm"
+                  placeholder="you@company.co.uk"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Company</label>
-                <input type="text" className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm" placeholder="Company name" />
+                <input
+                  type="text"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm"
+                  placeholder="Company name"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">What do you want to fix?</label>
-                <textarea className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm" rows={4} placeholder="CRM sync, dashboards, automations..." />
+                <textarea
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm"
+                  rows={4}
+                  placeholder="CRM sync, dashboards, automations..."
+                />
               </div>
-              <button className="btn-primary w-full rounded-full px-5 py-3 text-sm font-medium shadow-glow">Send Enquiry</button>
+              <button type="submit" className="btn-primary w-full rounded-full px-5 py-3 text-sm font-medium shadow-glow">
+                Send Enquiry
+              </button>
             </form>
           </Reveal>
           <Reveal delay={0.1}>
@@ -40,7 +86,7 @@ export default function ContactPage() {
                 <li className="flex gap-2"><span className="mt-1.5 inline-flex h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />We identify the quick wins first.</li>
                 <li className="flex gap-2"><span className="mt-1.5 inline-flex h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />We share clear next steps and transparent pricing.</li>
               </ul>
-              <p className="mt-6 text-sm text-[var(--foreground)]/60">Prefer email? Contact support@datalift.co.uk</p>
+              <p className="mt-6 text-sm text-[var(--foreground)]/60">Prefer email? Contact hello@datalift.co.uk</p>
             </div>
           </Reveal>
         </div>

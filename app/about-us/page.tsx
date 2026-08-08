@@ -2,30 +2,32 @@
 
 import PageShell from '../components/PageShell';
 import Reveal from '../components/Reveal';
+import Link from 'next/link';
 
 export default function AboutUsPage() {
   return (
     <PageShell
       title="About Us"
-      subtitle="We're a UK-based data, automation, and AI company. We connect disconnected systems and build tools that save your team hours every week."
+      subtitle="We're a UK-based data, automation, and AI company built by practitioners, not theorists. We connect disconnected systems and build tools that save your team hours every week."
     >
       <section className="py-6 md:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           <Reveal>
             <div className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-5 sm:p-6 md:p-8 shadow-card">
-              <h3 className="text-lg sm:text-xl font-semibold">What we do</h3>
+              <h3 className="text-lg sm:text-xl font-semibold">Founder story</h3>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base text-[var(--foreground)]/70 leading-relaxed">
-                DataLift connects your CRM, sales, marketing, and payment systems so data flows automatically between them.
-                We build dashboards that give you real-time visibility, and we automate the manual work that slows your team down.
+                DataLift started from a simple observation: most UK businesses already own the right tools, but those tools don't talk to each other. Salesforce holds the sales data. GoHighLevel runs the marketing. Chargebee processes payments. Google Sheets tracks everything else. None of it flows automatically, and someone spends hours every week copy-pasting between systems.
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-[var(--foreground)]/70 leading-relaxed">
+                I built DataLift to fix that. No enterprise contracts. No six-month IT projects. Just straight integration work, clear dashboards, and automation that non-technical teams can actually use.
               </p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-5 sm:p-6 md:p-8 shadow-card">
-              <h3 className="text-lg sm:text-xl font-semibold">Who we serve</h3>
+              <h3 className="text-lg sm:text-xl font-semibold">What we do differently</h3>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base text-[var(--foreground)]/70 leading-relaxed">
-                UK businesses with 10-200 employees who use tools like Salesforce, GoHighLevel, Chargebee, and Google Sheets —
-                but have disconnected systems and manual processes eating up their team&apos;s time. No technical knowledge required from you.
+                We specialise in UK property education, trading education, and professional services. That focus means we understand your reporting, your compliance, and your seasonality. We don't hand you a generic integration template and walk away. We connect your exact stack, build dashboards around your actual KPIs, and train your team to maintain it.
               </p>
             </div>
           </Reveal>

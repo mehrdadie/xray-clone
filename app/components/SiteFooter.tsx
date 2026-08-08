@@ -56,9 +56,9 @@ const columns = [
 ];
 
 const socials = [
-  { label: 'LinkedIn', href: '#' },
-  { label: 'Twitter', href: '#' },
-  { label: 'GitHub', href: '#' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/company/datalift' },
+  { label: 'Twitter', href: 'https://x.com/datalift' },
+  { label: 'GitHub', href: 'https://github.com/datalift' },
 ];
 
 export default function SiteFooter() {

@@ -192,18 +192,26 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent -z-10" />
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
-                <div className="text-center mb-10 md:mb-16">
+                <div className="mb-10 md:mb-16">
                   <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-4 border border-blue-100/60">
-                    Testimonials
+                    Trusted by UK growth teams
                   </span>
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                    Client stories.
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+                    Property educators, trading coaches, and professional services—connected.
                   </h2>
-                  <p className="mt-3 text-sm md:text-base text-[var(--foreground)]/60 max-w-2xl mx-auto">
-                    Real results from UK businesses we&apos;ve helped connect, automate, and grow.
-                  </p>
                 </div>
               </Reveal>
+              <Reveal delay={0.1}>
+                <div className="flex flex-wrap items-center gap-6 md:gap-8 mb-10 md:mb-14 opacity-80">
+                  {['Property Training Co.', 'Trading Education UK', 'E-Learning Platform', 'Professional Services Group', 'Trading Room Ltd'].map((name) => (
+                    <span key={name} className="text-sm sm:text-base md:text-lg font-semibold tracking-tight text-[var(--foreground)]/70">
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
+
+              <Reveal>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
                 {testimonials.map((t, i) => (
                   <Reveal key={t.author} delay={i * 0.1}>
