@@ -5,10 +5,6 @@ import SmoothScroll from './components/SmoothScroll';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import Link from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 const metrics = [
   { value: '50+', label: 'Systems Connected' },
@@ -167,52 +163,68 @@ export default function Home() {
           </section>
 
           {/* Client Stories */}
-          <section className="py-12 md:py-20 bg-white/50">
+          <section className="py-12 md:py-20 bg-gradient-to-b from-white/50 to-white/80">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
-              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 md:mb-10 gap-4">
-                <div className="flex-1">
-                  <Reveal>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Client stories.</h2>
-                    <p className="mt-2 text-sm md:text-base text-[var(--foreground)]/70">Real results from UK businesses we've helped.</p>
-                  </Reveal>
+              <Reveal>
+                <div className="text-center mb-8 md:mb-14">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-wide uppercase mb-4">
+                    Testimonials
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+                    Client stories.
+                  </h2>
+                  <p className="mt-3 text-sm md:text-lg text-[var(--foreground)]/60 max-w-2xl mx-auto">
+                    Real results from UK businesses we've helped connect, automate, and grow.
+                  </p>
                 </div>
-                <Link
-                  href="/case-studies"
-                  className="inline-flex rounded-full border border-[var(--foreground)]/20 px-5 py-2.5 text-sm font-medium hover:bg-[var(--foreground)]/5 self-start sm:self-auto"
-                >
-                  View All Case Studies
-                </Link>
-              </div>
-              <Reveal delay={0.1}>
-                <div className="relative">
-                  <Swiper
-                    modules={[Navigation]}
-                    spaceBetween={24}
-                    slidesPerView={1}
-                    navigation
-                    className="overflow-visible"
-                  >
-                    {testimonials.map((t) => (
-                      <SwiperSlide key={t.author}>
-                        <div className="rounded-3xl bg-white border border-black/5 p-6 sm:p-8 md:p-12 shadow-sm flex flex-col gap-6">
-                          <div>
-                            <p className="text-lg sm:text-xl md:text-2xl leading-relaxed font-medium text-[var(--foreground)]">
-                              &ldquo;{t.quote}&rdquo;
-                            </p>
-                            <div className="mt-5 md:mt-6 flex items-center gap-3">
-                              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center text-blue-600 font-bold text-sm md:text-base">
-                                {t.author.charAt(0)}
-                              </div>
-                              <div>
-                                <div className="font-semibold text-sm md:text-base">{t.author}</div>
-                                <div className="text-xs md:text-sm text-[var(--foreground)]/60">{t.title}</div>
-                              </div>
-                            </div>
-                          </div>
+              </Reveal>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                {testimonials.map((t, i) => (
+                  <Reveal key={t.author} delay={i * 0.1}>
+                    <div className="group relative rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
+                      {/* Quote mark */}
+                      <div className="absolute top-6 right-6 text-6xl md:text-7xl leading-none font-serif text-blue-100 select-none transition group-hover:text-blue-200">
+                        &rdquo;
+                      </div>
+                      {/* Stars */}
+                      <div className="flex gap-1 mb-5">
+                        {[1, 2, 3, 4, 5].map((s) => (
+                          <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#1566B9">
+                            <path d="M12 2l2.39 7.36H22l-6.19 4.5L18.2 21 12 16.5 5.8 21l2.39-7.14L2 9.36h7.61z" />
+                          </svg>
+                        ))}
+                      </div>
+                      {/* Quote */}
+                      <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/80 flex-1 relative z-10">
+                        {t.quote}
+                      </p>
+                      {/* Divider */}
+                      <div className="my-5 md:my-6 h-px bg-gradient-to-r from-blue-100 via-blue-50 to-transparent" />
+                      {/* Author */}
+                      <div className="flex items-center gap-3">
+                        <div className="w-11 h-11 md:w-12 md:h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-base shadow-sm">
+                          {t.author.charAt(0)}
                         </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                        <div>
+                          <div className="font-semibold text-sm md:text-base text-[var(--foreground)]">{t.author}</div>
+                          <div className="text-xs md:text-sm text-[var(--foreground)]/50">{t.title}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+              <Reveal delay={0.3}>
+                <div className="text-center mt-8 md:mt-12">
+                  <Link
+                    href="/case-studies"
+                    className="inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-white hover:bg-[var(--foreground)]/90 transition shadow-sm"
+                  >
+                    View All Case Studies
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
               </Reveal>
             </div>
