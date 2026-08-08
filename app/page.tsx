@@ -211,7 +211,6 @@ export default function Home() {
                 </div>
               </Reveal>
 
-              <Reveal>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
                 {testimonials.map((t, i) => (
                   <Reveal key={t.author} delay={i * 0.1}>
