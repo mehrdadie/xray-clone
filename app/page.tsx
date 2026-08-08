@@ -93,14 +93,14 @@ function ToolBadge({ name, size = 'md' }: { name: string; size?: 'sm' | 'md' }) 
       className={`reveal visible rounded-2xl bg-white/90 border border-black/5 p-3 md:p-5 text-center shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5`}
       style={{ transitionDelay: `${heroTools.indexOf(name) * 40}ms` }}
     >
-      <div className={`mx-auto flex items-center justify-center ${isSmall ? 'h-8 w-8' : 'h-10 w-10 md:h-12 md:w-12'} rounded-xl bg-white border border-black/5 shadow-sm overflow-hidden mb-2 md:mb-3`}>
+      <div className={`mx-auto flex items-center justify-center ${isSmall ? 'h-7 w-7' : 'h-9 w-9 md:h-10 md:w-10 md:h-12 md:w-12'} rounded-xl bg-white border border-black/5 shadow-sm overflow-hidden mb-1.5 md:mb-2.5`}>
         {imgSrc ? (
-          <Image src={imgSrc} alt={name} width={isSmall ? 32 : 48} height={isSmall ? 32 : 48} className="h-full w-full object-contain p-1" />
+          <Image src={imgSrc} alt={name} width={isSmall ? 28 : 48} height={isSmall ? 28 : 48} className="h-full w-full object-contain p-0.5 md:p-1" />
         ) : (
-          <span className="text-xs md:text-sm font-semibold" style={{ color: bg }}>{name[0]}</span>
+          <span className={`${isSmall ? 'text-[10px]' : 'text-xs md:text-sm'} font-semibold`} style={{ color: bg }}>{name[0]}</span>
         )}
       </div>
-      <div className={`font-semibold ${isSmall ? 'text-xs md:text-sm' : 'text-xs md:text-sm'}`}>{name}</div>
+      <div className={`font-semibold ${isSmall ? 'text-[10px] md:text-xs' : 'text-xs md:text-sm'} leading-tight`}>{name}</div>
     </div>
   );
 }
