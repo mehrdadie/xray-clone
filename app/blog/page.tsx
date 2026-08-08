@@ -2,7 +2,7 @@
 
 import PageShell from '../components/PageShell';
 import Reveal from '../components/Reveal';
-import Link from 'next/link';
+import Image from 'next/image';
 
 export default function BlogPage() {
   return (
@@ -19,8 +19,8 @@ export default function BlogPage() {
           ].map((post, i) => (
             <Reveal key={post.title} delay={i * 0.08}>
               <article className="group rounded-3xl bg-white/80 backdrop-blur border border-black/5 overflow-hidden shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5">
-                <div className="aspect-video w-full overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 relative">
-                  <img src={post.image} alt={post.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <div className="aspect-video w-full overflow-hidden relative bg-gradient-to-br from-blue-50 to-indigo-100">
+                  <Image src={post.image} alt={post.title} fill className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-5 md:p-6">
                   <span className="inline-block rounded-full border border-black/10 px-3 py-1 text-xs font-medium mb-3">{post.tag}</span>
