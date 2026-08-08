@@ -1,11 +1,9 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLayoutEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
-gsap.registerPlugin(ScrollTrigger);
+// SplitTextReveal — simplified to a single fade-in instead of per-character animation.
+// Uses IntersectionObserver + CSS transition.
 
 type SplitTextProps = {
   text: string;
@@ -14,51 +12,41 @@ type SplitTextProps = {
 };
 
 export default function SplitTextReveal({ text, className, tag = 'h2' }: SplitTextProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const chars = text.split('');
-    el.innerHTML = '';
-
-    chars.forEach((char) => {
-      const span = document.createElement('span');
-      span.textContent = char === ' ' ? '\u00A0' : char;
-      span.style.display = 'inline-block';
-      span.style.opacity = '0';
-      span.style.transform = 'translateY(20px)';
-      span.style.willChange = 'transform, opacity';
-      el.appendChild(span);
-    });
-
-    const spans = el.querySelectorAll('span');
-
-    gsap.to(spans, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      stagger: 0.02,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        once: true,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === el) st.kill();
-      });
-    };
-  }, [text]);
-
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
   const Tag = tag;
 
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px' }
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div ref={containerRef} className={className}>
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(16px)',
+        transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
+      }}
+    >
       <Tag>{text}</Tag>
     </div>
   );

@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef, useState } from 'react';
 
-gsap.registerPlugin(ScrollTrigger);
+// Lightweight CSS-based reveal — no GSAP, no ScrollTrigger.
+// Uses IntersectionObserver + CSS transition for a gentle fade-in.
 
 export default function Reveal({
   children,
@@ -14,41 +13,39 @@ export default function Reveal({
   delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Use a timeout to ensure elements are visible even if ScrollTrigger doesn't fire
-    const fallbackTimer = setTimeout(() => {
-      gsap.set(el, { opacity: 1, y: 0 });
-    }, 2000);
-
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 36 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 86%',
-          once: true,
-        },
-      }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px' }
     );
 
-    return () => {
-      clearTimeout(fallbackTimer);
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === el) st.kill();
-      });
-    };
-  }, [delay]);
+    observer.observe(el);
 
-  // Default visible state — GSAP will animate from opacity 0
-  return <div ref={ref} style={{ opacity: 1 }}>{children}</div>;
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(16px)',
+        transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s`,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
