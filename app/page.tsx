@@ -123,7 +123,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div className="max-w-xl">
                   <Reveal>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
+                    <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
                       Your systems disconnected?
                       <span className="block gradient-text mt-2">Let&apos;s fix that.</span>
                     </h1>
@@ -355,7 +355,7 @@ export default function Home() {
                         <span className="text-lg font-semibold">{plan.name}</span>
                       </div>
                       <div className="h-40 md:h-44 w-full flex items-center justify-center mt-4">
-                        <img src={plan.image} alt={`DataLift ${plan.name}`} className="h-full w-full object-contain" />
+                        <Image src={plan.image} alt={`DataLift ${plan.name}`} width={400} height={200} className="h-full w-full object-contain" />
                       </div>
                       <p className="mt-5 text-sm md:text-base text-[var(--foreground)]/65">{plan.desc}</p>
                       <ul className="mt-5 md:mt-6 space-y-3">
