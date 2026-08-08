@@ -55,7 +55,7 @@ const caseStudies = [
     author: 'Managing Director',
     avatar: 'M',
     quote:
-      "The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress — all pulled from Salesforce and Chargebee automatically. It changed how we make decisions.",
+      'The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress — all pulled from Salesforce and Chargebee automatically. It changed how we make decisions.',
     problem:
       "A trading education company offered live trading rooms, online courses, and in-person workshops. Their Salesforce CRM tracked leads and bookings, while Chargebee managed recurring subscriptions for their trading room access. But the managing director had no visibility into which courses were most profitable, how many active subscribers they had at any moment, or which marketing campaigns were driving the highest-value bookings. Decisions were made on gut feeling, not data. Finance spent a week each month manually reconciling Salesforce bookings with Chargebee subscriptions.",
     solution:
@@ -69,112 +69,6 @@ const caseStudies = [
     tools: ['Salesforce', 'Chargebee', 'n8n'],
     services: ['Real-time Dashboards', 'Revenue Analytics', 'Churn Alert Automation', 'System Integration'],
   },
-  {
-    id: 'property-events-austin',
-    company: 'Property Training & Events Company',
-    location: 'Austin, Texas, USA',
-    industry: 'Property Education & Events',
-    author: 'Event Coordinator',
-    avatar: 'A',
-    quote:
-      "Our event bookings, follow-ups, and payment tracking used to live in three different places. DataLift connected everything so our team can see exactly who booked, who paid, and who needs a follow-up — all in one place.",
-    problem:
-      "This property training company ran large in-person events and webinars. Event registrations were tracked in a separate booking platform, payments in Stripe, and follow-up communications in a separate email tool. After every event, the team spent 2-3 days manually matching attendees with payments and uploading lists to the email tool for follow-up. Some attendees were missed, some were emailed twice, and there was no way to track which events generated the most revenue per attendee.",
-    solution:
-      "DataLift automated the entire event lifecycle. When someone registered, their record was created in Salesforce automatically. When they paid via Stripe, the payment status was synced instantly. After each event, the attendee list was automatically segmented in Salesforce and synced to the email platform for targeted follow-up sequences. A dashboard was built showing event revenue, attendance rate, cost per attendee, and follow-up conversion by event type.",
-    results: [
-      { metric: '2-3 days → 0', label: 'Manual post-event processing eliminated' },
-      { metric: 'Zero', label: 'Missed or duplicate follow-ups' },
-      { metric: '28%', label: 'Increase in post-event conversion' },
-    ],
-    tools: ['Salesforce', 'Stripe', 'Email Platform', 'n8n'],
-    services: ['Event Automation', 'Revenue Dashboard', 'Follow-up Sequences', 'System Integration'],
-  },
-  {
-    id: 'sales-training-chicago',
-    company: 'Sales Training Company',
-    location: 'Chicago, Illinois, USA',
-    industry: 'Sales Training & Development',
-    author: 'Head of Operations',
-    avatar: 'K',
-    quote:
-      "We deliver training to hundreds of delegates each month. DataLift built a system that tracks every delegate from booking to completion, automatically sends certificates, and gives us a dashboard of training impact per client. It saved us a full-time admin role.",
-    problem:
-      "A sales training company delivered open courses and in-house training to hundreds of delegates per month. Bookings were managed in a CRM, but delegate attendance, course completion, and certificate issuance were all tracked manually in spreadsheets. The team couldn't answer basic questions like 'what's our completion rate?' or 'which clients have pending training credits?' without spending days cross-referencing spreadsheets. Certificate issuance was manual and error-prone.",
-    solution:
-      "DataLift built an automated delegate tracking system connected to the CRM. When a delegate booked, a training record was auto-created. Attendance was tracked via a simple check-in form, and completion status automatically triggered certificate generation via an email automation. A dashboard showed live completion rates, training credits remaining per client, and revenue per training programme. Monthly admin work was reduced to near zero.",
-    results: [
-      { metric: '1 FTE', label: 'Admin role reallocated to higher-value work' },
-      { metric: 'Auto', label: 'Certificate issuance (was manual)' },
-      { metric: '95%', label: 'Course completion tracking accuracy' },
-      { metric: '100+', label: 'Delegates auto-tracked per month' },
-    ],
-    tools: ['CRM', 'Google Sheets', 'Email Platform', 'n8n'],
-    services: ['Delegate Tracking System', 'Certificate Automation', 'Training Dashboard', 'System Integration'],
-  },
-  {
-    id: 'wealth-education-singapore',
-    company: 'Wealth Education Company',
-    location: 'Singapore',
-    industry: 'Wealth & Financial Education',
-    author: 'Marketing Manager',
-    avatar: 'W',
-    quote:
-      "We run webinars every week, but we never knew which ones actually drove sales. DataLift connected our webinar platform to our CRM and payment system so we can finally see the full journey from attendee to paying customer.",
-    problem:
-      "This wealth education company ran weekly webinars to attract new customers. Webinar registrations were in Zoom, leads in Salesforce, and payments in Chargebee — but no system connected them. The marketing team couldn't answer 'which webinars produce the most paying customers?' or 'how long does it take from webinar attendance to purchase?' Budget was being spent on webinars with no visibility into ROI.",
-    solution:
-      "DataLift built a webinar-to-revenue pipeline. Webinar registrations from Zoom were automatically synced to Salesforce as leads. When a lead made a purchase through Chargebee, the system traced it back to the specific webinar they attended. A dashboard showed webinar attendance → purchase conversion rate, average time-to-purchase per webinar topic, and revenue attributed to each webinar. The marketing team could now see which topics drove the highest-value sales.",
-    results: [
-      { metric: 'Full funnel', label: 'Webinar-to-revenue attribution' },
-      { metric: '3.2x', label: 'ROI on top-performing webinar topics' },
-      { metric: '48 hrs', label: 'Average time from webinar to purchase (was unknown)' },
-    ],
-    tools: ['Zoom', 'Salesforce', 'Chargebee', 'n8n'],
-    services: ['Webinar Attribution', 'Revenue Dashboard', 'Lead-to-Sale Tracking', 'System Integration'],
-  },
-  {
-    id: 'telesales-dublin',
-    company: 'Telesales Consultancy',
-    location: 'Dublin, Ireland',
-    industry: 'Telesales & Sales Consultancy',
-    author: 'Operations Lead',
-    avatar: 'D',
-    quote:
-      "We work with sales teams across the country. DataLift connected our call tracking, CRM, and reporting so our consultants can see every client's call metrics, pipeline, and conversion rates in one dashboard instead of three different systems.",
-    problem:
-      "A telesales consultancy tracked client call activity in a call analytics platform, pipeline in Salesforce, and delivered weekly performance reports via manually compiled spreadsheets. Consultants spent 4+ hours per week per client building reports. Clients couldn't get real-time visibility into their telesales performance — they had to wait for a weekly emailed spreadsheet.",
-    solution:
-      "DataLift connected the call analytics platform to Salesforce and built a client-facing dashboard. Call volumes, conversion rates, and pipeline value were synced automatically. Each client got a personalised dashboard link showing live telesales performance. Consultants stopped building manual reports entirely — the dashboard became the reporting tool.",
-    results: [
-      { metric: '4 hrs → 0', label: 'Per-client weekly reporting time' },
-      { metric: 'Real-time', label: 'Client access to performance data' },
-      { metric: '15+', label: 'Clients on automated dashboards' },
-    ],
-    tools: ['Call Analytics', 'Salesforce', 'Google Sheets', 'n8n'],
-    services: ['Client Dashboard', 'Call Tracking Integration', 'Automated Reporting', 'System Integration'],
-  },
-  {
-    id: 'property-investment-auckland',
-    company: 'Property Investment Education Company',
-    location: 'Auckland, New Zealand',
-    industry: 'Property Investment Education',
-    author: 'Client Success Manager',
-    avatar: 'T',
-    quote:
-      "Our students used to get lost between systems — booking in one, course access in another, support tickets elsewhere. DataLift created a single student journey so nothing falls through the cracks anymore.",
-    problem:
-      "A property investment education company offered programmes with multiple stages: initial consultation, course enrollment, module access, follow-up calls, and ongoing support. Each stage lived in a different system: consultations booked in Calendly, course access in an LMS, follow-up calls tracked in a spreadsheet, and support in a helpdesk tool. Students frequently fell through the gaps — some paid but never got course access, others booked calls but the consultant had no context.",
-    solution:
-      "DataLift built a unified student journey system. When a consultation was booked in Calendly, a complete student record was created in Salesforce with a stage tracker. Payment triggered automatic LMS enrollment. Call bookings were synced to the consultant's calendar with full student context attached. A dashboard showed every student's current stage, flagged those stuck between stages for more than 7 days, and tracked overall programme completion rates.",
-    results: [
-      { metric: 'Zero', label: 'Students lost between systems' },
-      { metric: '7-day alert', label: 'Automatic flag for stuck students' },
-      { metric: '42%', label: 'Improvement in programme completion rate' },
-    ],
-    tools: ['Calendly', 'Salesforce', 'LMS', 'Helpdesk', 'n8n'],
-    services: ['Student Journey Automation', 'Stage Tracking Dashboard', 'Alert System', 'System Integration'],
-  },
 ];
 
 export default function CaseStudiesPage() {
@@ -183,25 +77,24 @@ export default function CaseStudiesPage() {
       title="Case Studies"
       subtitle="Real results from businesses we've helped — measured in hours saved, errors removed, and decisions made faster."
     >
-      {/* Hero stats bar */}
       <section className="pb-6 md:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-3xl bg-white/70 border border-black/5 p-4 sm:p-5 md:p-8 shadow-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-4 sm:p-5 md:p-8 shadow-card">
               <div className="text-center md:text-left">
-                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">8+</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold gradient-text">8+</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">Businesses Served</div>
               </div>
               <div className="text-center md:text-left">
-                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">10k+</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold gradient-text">10k+</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">Hours Automated</div>
               </div>
               <div className="text-center md:text-left">
-                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">50+</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold gradient-text">50+</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">Systems Connected</div>
               </div>
               <div className="text-center md:text-left">
-                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-[var(--accent)]">99.9%</div>
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold gradient-text">99.9%</div>
                 <div className="text-xs md:text-sm text-[var(--foreground)]/60 mt-1">Uptime Maintained</div>
               </div>
             </div>
@@ -209,44 +102,36 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* SEO intro text */}
       <section className="pb-6 md:pb-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <div className="rounded-2xl bg-white/50 border border-black/5 p-4 sm:p-6 md:p-8">
+            <div className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-4 sm:p-6 md:p-8 shadow-card">
               <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/70">
                 DataLift specialises in <strong>CRM integration, marketing automation, and real-time business dashboards</strong> for
                 growing companies. Our case studies show how we connect disconnected systems — Salesforce, GoHighLevel, Chargebee,
                 Stripe, and more — to automate data flow, eliminate manual reporting, and give teams a single source of truth.
-                Explore the results below to see how data integration and workflow automation transform operations, reduce admin
-                hours, and drive better decisions.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Case study cards */}
       <section className="pb-8 md:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 space-y-6 md:space-y-10">
           {caseStudies.map((cs, i) => (
             <Reveal key={cs.id} delay={Math.min(i * 0.05, 0.2)}>
-              <article className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 shadow-sm overflow-hidden">
-                {/* Top: Company header */}
+              <article className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 shadow-card overflow-hidden">
                 <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 px-4 sm:px-6 md:px-12 py-4 sm:py-5 md:py-8 border-b border-blue-100/50">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div>
-                      <div className="flex items-center gap-2 mb-1 flex-wrap">
-                        <span className="text-[10px] sm:text-xs font-semibold tracking-wide uppercase text-blue-600 bg-blue-100 px-2.5 py-1 rounded-full">
-                          {cs.industry}
-                        </span>
-                      </div>
-                      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-[var(--foreground)]">
+                      <span className="text-[10px] sm:text-xs font-semibold tracking-wide uppercase text-blue-700 bg-blue-100 px-2.5 py-1 rounded-full">
+                        {cs.industry}
+                      </span>
+                      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-[var(--foreground)] mt-1">
                         {cs.company}
                       </h2>
                       <p className="text-xs sm:text-sm text-[var(--foreground)]/60 mt-1">📍 {cs.location}</p>
                     </div>
-                    {/* Tools used */}
                     <div className="flex flex-wrap gap-2">
                       {cs.tools.map((tool) => (
                         <span key={tool} className="inline-block rounded-xl bg-white px-2.5 sm:px-3 py-1.5 text-xs font-medium shadow-sm border border-black/5">
@@ -257,7 +142,6 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {/* Quote */}
                 <div className="px-4 sm:px-6 md:px-12 py-4 sm:py-5 md:py-8 bg-white/60">
                   <div className="flex items-start gap-3 md:gap-4">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-base md:text-lg shrink-0 shadow-sm">
@@ -274,9 +158,7 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {/* Problem + Solution */}
                 <div className="px-4 sm:px-6 md:px-12 py-4 sm:py-5 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
-                  {/* Problem */}
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-8 h-8 rounded-xl bg-red-50 flex items-center justify-center text-red-500 shrink-0">
@@ -289,7 +171,6 @@ export default function CaseStudiesPage() {
                     </div>
                     <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/70">{cs.problem}</p>
                   </div>
-                  {/* Solution */}
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-8 h-8 rounded-xl bg-green-50 flex items-center justify-center text-green-600 shrink-0">
@@ -304,21 +185,18 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {/* Results */}
                 <div className="px-4 sm:px-6 md:px-12 py-4 sm:py-5 md:py-8 bg-gradient-to-b from-transparent to-blue-50/30 border-t border-black/5">
                   <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-3 md:mb-6 flex items-center gap-2">
                     <span className="text-blue-600">📈</span> Results
                   </h3>
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4">
                     {cs.results.map((r) => (
-                      <div key={r.label} className="rounded-2xl bg-white border border-black/5 p-2.5 sm:p-3 md:p-5 text-center shadow-sm">
-                        <div className="text-base sm:text-lg md:text-2xl font-bold text-[var(--accent)]">{r.metric}</div>
+                      <div key={r.label} className="rounded-2xl bg-white/80 backdrop-blur border border-black/5 p-2.5 sm:p-3 md:p-5 text-center shadow-sm">
+                        <div className="text-base sm:text-lg md:text-2xl font-bold gradient-text">{r.metric}</div>
                         <div className="text-[11px] sm:text-xs md:text-sm text-[var(--foreground)]/60 mt-1 md:mt-2 leading-tight">{r.label}</div>
                       </div>
                     ))}
                   </div>
-
-                  {/* Services used */}
                   <div className="mt-4 sm:mt-5 md:mt-6 flex flex-wrap gap-2">
                     <span className="text-[11px] sm:text-xs font-medium text-[var(--foreground)]/50 mr-1 self-center">Services:</span>
                     {cs.services.map((s) => (
@@ -334,7 +212,6 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="pb-12 md:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
@@ -347,7 +224,7 @@ export default function CaseStudiesPage() {
               </p>
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium text-white hover:bg-[var(--foreground)]/90 transition shadow-sm"
+                className="btn-primary inline-flex items-center gap-2 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium shadow-glow"
               >
                 Book a Free Consultation
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
