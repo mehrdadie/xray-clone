@@ -67,19 +67,19 @@ const blogPosts = [
   {
     title: 'How to Connect Salesforce With Your Marketing Tools (Without a Developer)',
     tag: 'Integration',
-    image: '/assets/blog-1.svg',
+    image: '/assets/blog-1.png',
     desc: 'A practical guide to syncing Salesforce with GoHighLevel, Mailchimp, and other marketing platforms — no code required.',
   },
   {
     title: 'Why Your CRM and Payment System Should Talk to Each Other',
     tag: 'Automation',
-    image: '/assets/blog-2.svg',
-    desc: "Disconnected CRM and billing means lost revenue and wasted hours. Here's how to fix it with tools you already have.",
+    image: '/assets/blog-2.png',
+    desc: 'Disconnected CRM and billing means lost revenue and wasted hours. Here is how to fix it with tools you already have.',
   },
   {
     title: 'Building AI Dashboards for Non-Technical Teams',
     tag: 'AI',
-    image: '/assets/blog-3.svg',
+    image: '/assets/blog-3.png',
     desc: 'How UK businesses use AI-powered dashboards to turn raw data from multiple systems into clear, actionable decisions.',
   },
 ];
@@ -322,7 +322,7 @@ export default function Home() {
                     name: 'Hourly',
                     price: '£150',
                     sub: '/hr',
-                    image: '/assets/illus-hourly.svg',
+                    image: '/assets/illus-hourly.png',
                     desc: 'For businesses that need expert help connecting systems or fixing automation issues — right away.',
                     features: [
                       'Flexible, hourly, as-needed billing with no long-term commitment.',
@@ -334,7 +334,7 @@ export default function Home() {
                     name: 'Monthly',
                     price: '£4,000',
                     sub: '/mo',
-                    image: '/assets/illus-monthly.svg',
+                    image: '/assets/illus-monthly.png',
                     desc: 'For businesses ready to connect all their systems and build a unified data and automation platform.',
                     features: [
                       'Dedicated support: A dedicated automation specialist and project manager.',
