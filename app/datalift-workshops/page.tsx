@@ -57,7 +57,7 @@ export default function WorkshopsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">Ready to lift your business?</h2>
-            <Link href="#" className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium shadow-glow mt-6">
+            <Link href="/contact" className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium shadow-glow mt-6">
               Book a Free Consultation
             </Link>
           </Reveal>

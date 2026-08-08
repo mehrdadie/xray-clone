@@ -24,8 +24,8 @@ const columns = [
     title: 'Company',
     links: [
       { label: 'About Us', href: '/about-us' },
-      { label: 'Terms & Conditions', href: '#' },
-      { label: 'Privacy Policy', href: '#' },
+      { label: 'Terms & Conditions', href: '/terms' },
+      { label: 'Privacy Policy', href: '/privacy' },
     ],
   },
   {

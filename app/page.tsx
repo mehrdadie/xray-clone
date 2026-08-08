@@ -137,7 +137,7 @@ export default function Home() {
                   <Reveal delay={0.2}>
                     <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <a
-                        href="#"
+                        href="/contact"
                         className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 sm:py-4 text-sm font-medium shadow-glow"
                       >
                         Book a Free Consultation
@@ -426,7 +426,7 @@ export default function Home() {
                         <span className="inline-block rounded-full border border-black/10 px-3 py-1 text-xs font-medium mb-3">{post.tag}</span>
                         <h3 className="text-base md:text-lg font-semibold leading-snug">{post.title}</h3>
                         <p className="mt-2 text-sm text-[var(--foreground)]/65 leading-relaxed">{post.desc}</p>
-                        <a href="#" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] group/link">
+                        <a href="/blog" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] group/link">
                           Read Article
                           <span className="transition-transform group-hover/link:translate-x-0.5">→</span>
                         </a>
@@ -449,7 +449,7 @@ export default function Home() {
                     Book a free 30-minute consultation. We&apos;ll look at your systems and show you exactly where data and automation can save you time.
                   </p>
                   <a
-                    href="#"
+                    href="/contact"
                     className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 sm:py-4 text-sm font-medium shadow-glow mt-6 md:mt-8"
                   >
                     Book a Free Consultation

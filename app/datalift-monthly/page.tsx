@@ -51,7 +51,7 @@ export default function MonthlyPage() {
               <h3 className="text-base sm:text-lg font-semibold">System Integration Sprint</h3>
               <div className="mt-2 text-2xl sm:text-3xl font-bold">£4,000<span className="text-sm font-normal text-[var(--foreground)]/70">/mo</span></div>
               <p className="mt-2 text-sm text-[var(--foreground)]/70 leading-relaxed">Our signature package to start with. Connect your key systems and build your first dashboards.</p>
-              <Link href="#" className="btn-primary inline-flex items-center justify-center rounded-full px-4 py-3 sm:py-2 text-xs sm:text-sm font-medium shadow-glow mt-4">
+              <Link href="/contact" className="btn-primary inline-flex items-center justify-center rounded-full px-4 py-3 sm:py-2 text-xs sm:text-sm font-medium shadow-glow mt-4">
                 Book a Free Consultation
               </Link>
             </div>
@@ -61,7 +61,7 @@ export default function MonthlyPage() {
               <h3 className="text-base sm:text-lg font-semibold">Full Platform Transformation</h3>
               <div className="mt-2 text-xl sm:text-3xl font-bold">Pricing Disclosed after Assessment</div>
               <p className="mt-2 text-sm text-[var(--foreground)]/70 leading-relaxed">Connect everything, automate workflows, build AI tools, and train your team.</p>
-              <Link href="#" className="btn-primary inline-flex items-center justify-center rounded-full px-4 py-3 sm:py-2 text-xs sm:text-sm font-medium shadow-sm mt-4">
+              <Link href="/contact" className="btn-primary inline-flex items-center justify-center rounded-full px-4 py-3 sm:py-2 text-xs sm:text-sm font-medium shadow-sm mt-4">
                 Book a Free Consultation
               </Link>
             </div>
@@ -73,7 +73,7 @@ export default function MonthlyPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">Ready to lift your business?</h2>
-            <Link href="#" className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium shadow-glow mt-6">
+            <Link href="/contact" className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium shadow-glow mt-6">
               Book a Free Consultation
             </Link>
           </Reveal>

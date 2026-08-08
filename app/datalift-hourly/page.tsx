@@ -52,8 +52,8 @@ export default function HourlyPage() {
           <Reveal>
             <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">Ready to lift your business?</h2>
             <Link
-              href="#"
-              className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 sm:py-3 text-sm font-medium shadow-glow mt-6"
+              href="/contact"
+              className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium shadow-glow mt-6"
             >
               Book a Free Consultation
             </Link>

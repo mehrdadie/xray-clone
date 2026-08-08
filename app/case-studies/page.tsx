@@ -223,7 +223,7 @@ export default function CaseStudiesPage() {
                 Book a free 30-minute consultation. We'll look at your systems and show you exactly where data and automation can save you time.
               </p>
               <Link
-                href="#"
+                href="/contact"
                 className="btn-primary inline-flex items-center gap-2 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium shadow-glow"
               >
                 Book a Free Consultation
