@@ -234,11 +234,6 @@ export default function Home() {
                       <div className="absolute top-6 right-6 text-6xl md:text-7xl leading-none font-serif text-blue-100 select-none transition group-hover:text-blue-200">
                         &rdquo;
                       </div>
-                      <div className="relative z-10 mb-5">
-                        <div className="w-12 h-12 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 border border-black/5 shadow-sm">
-                          <Image src={t.image} alt={t.author} width={48} height={48} className="h-full w-full object-cover" loading="lazy" />
-                        </div>
-                      </div>
                       <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/80 flex-1 relative z-10">
                         {t.quote}
                       </p>
