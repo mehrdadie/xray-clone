@@ -2,15 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-// Lightweight CSS-based reveal — no GSAP, no ScrollTrigger.
-// Uses IntersectionObserver + CSS transition for a gentle fade-in.
-
+// Reveal — IntersectionObserver with stagger-ready structure.
 export default function Reveal({
   children,
   delay = 0,
+  className = '',
 }: {
   children: React.ReactNode;
   delay?: number;
+  className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -28,22 +28,18 @@ export default function Reveal({
           }
         });
       },
-      { rootMargin: '0px 0px -10% 0px' }
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.1 }
     );
 
     observer.observe(el);
-
     return () => observer.disconnect();
   }, []);
 
   return (
     <div
       ref={ref}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(16px)',
-        transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s`,
-      }}
+      className={`reveal ${visible ? 'visible' : ''} ${className}`}
+      style={{ transitionDelay: `${delay}s` }}
     >
       {children}
     </div>

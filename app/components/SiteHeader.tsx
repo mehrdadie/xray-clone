@@ -14,8 +14,15 @@ const nav = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden';
@@ -27,16 +34,21 @@ export default function SiteHeader() {
     };
   }, [open]);
 
-  // Close menu on route change
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--background)]/80 backdrop-blur supports-[backdrop-filter]:bg-[var(--background)]/60 border-b border-black/5">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[var(--background)]/70 backdrop-blur-xl border-b border-black/5 shadow-[0_1px_0_rgba(0,0,0,0.04)]'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+          <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
             <span className="text-xl font-bold tracking-tight">DataLift</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--foreground)]/80">
@@ -46,18 +58,23 @@ export default function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition-colors ${active ? 'text-[var(--foreground)]' : 'hover:text-[var(--foreground)]'}`}
+                  className={`relative py-1 transition-colors ${
+                    active ? 'text-[var(--foreground)]' : 'hover:text-[var(--foreground)]'
+                  }`}
                 >
                   {item.label}
+                  {active && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[var(--accent)]" />
+                  )}
                 </Link>
               );
             })}
           </nav>
         </div>
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <Link
             href="#"
-            className="inline-flex items-center justify-center rounded-full bg-[var(--foreground)] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--foreground)]/90"
+            className="btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium shadow-sm"
           >
             Book a Free Consultation
           </Link>
@@ -80,14 +97,15 @@ export default function SiteHeader() {
           )}
         </button>
       </div>
+
       {/* Mobile dropdown */}
       {open && (
         <>
           <div
-            className="md:hidden fixed inset-0 top-14 bg-black/20 z-40"
+            className="md:hidden fixed inset-0 top-14 bg-black/20 z-40 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           />
-          <div className="md:hidden fixed top-14 left-0 right-0 z-50 bg-[var(--background)] border-b border-black/5 shadow-lg max-h-[calc(100vh-3.5rem)] overflow-y-auto">
+          <div className="md:hidden fixed top-14 left-0 right-0 z-50 bg-[var(--background)]/95 backdrop-blur-xl border-b border-black/5 shadow-xl max-h-[calc(100vh-3.5rem)] overflow-y-auto">
             <nav className="px-4 pt-3 pb-6 flex flex-col gap-1">
               {nav.map((item) => {
                 const active = pathname === item.href || pathname?.startsWith(item.href + '/');
@@ -96,7 +114,9 @@ export default function SiteHeader() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${active ? 'bg-black/5 text-[var(--foreground)]' : 'text-[var(--foreground)]/80 hover:bg-black/5'}`}
+                    className={`py-3.5 px-4 rounded-xl text-base font-medium transition-colors ${
+                      active ? 'bg-black/5 text-[var(--foreground)]' : 'text-[var(--foreground)]/80 hover:bg-black/5'
+                    }`}
                   >
                     {item.label}
                   </Link>
@@ -105,7 +125,7 @@ export default function SiteHeader() {
               <Link
                 href="#"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-medium text-white hover:bg-[var(--foreground)]/90"
+                className="mt-3 inline-flex items-center justify-center rounded-full bg-[var(--foreground)] px-5 py-3.5 text-sm font-medium text-white hover:bg-[var(--foreground)]/90 transition shadow-sm"
               >
                 Book a Free Consultation
               </Link>

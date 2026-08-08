@@ -5,6 +5,7 @@ import SmoothScroll from './components/SmoothScroll';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const metrics = [
   { value: '50+', label: 'Systems Connected' },
@@ -19,18 +20,21 @@ const testimonials = [
       "DataLift connected our Salesforce, GoHighLevel, and Chargebee so everything just works. Our sales team no longer wastes hours copying data between systems. It's all automated, and we can see everything on one dashboard.",
     author: 'Operations Manager',
     title: 'Property Training Company, Essex',
+    image: '/assets/testimonial-kelsey.svg',
   },
   {
     quote:
       "We had disconnected systems everywhere — CRM, marketing, payments, spreadsheets. DataLift built a central dashboard and automated the data flow. Our team now focuses on selling, not admin.",
     author: 'Sales Director',
     title: 'Education Company, UK',
+    image: '/assets/testimonial-karan.svg',
   },
   {
     quote:
-      "The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress — all pulled from Salesforce and Chargebee automatically. It changed how we make decisions.",
+      'The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress — all pulled from Salesforce and Chargebee automatically. It changed how we make decisions.',
     author: 'Managing Director',
     title: 'Trading Education Company, London',
+    image: '/assets/testimonial-michelle.svg',
   },
 ];
 
@@ -63,32 +67,39 @@ export default function Home() {
         <main className="flex-1">
           {/* Hero */}
           <section className="relative overflow-hidden">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-8 md:pt-20 md:pb-12 lg:pt-28 lg:pb-16">
+            {/* Animated gradient orbs */}
+            <div className="absolute inset-0 -z-10" aria-hidden="true">
+              <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl animate-[gradientShift_10s_ease-in-out_infinite]" />
+              <div className="absolute top-24 right-0 h-80 w-80 rounded-full bg-indigo-200/25 blur-3xl animate-[gradientShift_12s_ease-in-out_infinite]" />
+              <div className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/20 blur-3xl" />
+            </div>
+
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-24 pb-10 md:pt-28 md:pb-14 lg:pt-36 lg:pb-20">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div className="max-w-xl">
                   <Reveal>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
                       Your systems disconnected?
-                      <span className="block text-[var(--accent)]">Let's fix that.</span>
+                      <span className="block gradient-text mt-2">Let&apos;s fix that.</span>
                     </h1>
                   </Reveal>
                   <Reveal delay={0.1}>
-                    <p className="mt-5 text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)]/70">
+                    <p className="mt-6 text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)]/65">
                       We connect your CRM, sales, marketing, and payment systems so your data flows automatically.
                       Build dashboards that show what matters. Use AI tools that actually save time. All with the systems you already use.
                     </p>
                   </Reveal>
                   <Reveal delay={0.2}>
-                    <div className="mt-7 md:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <a
                         href="#"
-                        className="inline-flex items-center justify-center rounded-full bg-[var(--foreground)] px-6 py-3 sm:py-3.5 text-sm font-medium text-white transition-colors hover:bg-[var(--foreground)]/90 shadow-sm"
+                        className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 sm:py-4 text-sm font-medium shadow-glow"
                       >
                         Book a Free Consultation
                       </a>
                       <a
                         href="/assessments"
-                        className="inline-flex items-center justify-center rounded-full border border-[var(--foreground)]/20 px-6 py-3 sm:py-3.5 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--foreground)]/5"
+                        className="inline-flex items-center justify-center rounded-full border border-[var(--foreground)]/15 bg-white/60 backdrop-blur px-6 py-3.5 sm:py-4 text-sm font-medium text-[var(--foreground)] transition hover:bg-white/80 shadow-card hover:shadow-card-hover"
                       >
                         Free System Assessment
                       </a>
@@ -97,20 +108,24 @@ export default function Home() {
                 </div>
                 <Reveal delay={0.15}>
                   <div className="relative">
-                    <div className="rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-6 md:p-10 lg:p-12 border border-blue-100/50 shadow-sm">
-                      <div className="grid grid-cols-2 gap-3 md:gap-4">
-                        {['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe'].map((tool, i) => (
-                          <div
-                            key={tool}
-                            className="rounded-2xl bg-white p-3 md:p-5 text-center text-xs md:text-sm font-semibold shadow-sm transition hover:shadow-md hover:-translate-y-0.5"
-                            style={{ transitionDelay: `${i * 30}ms` }}
-                          >
-                            {tool}
-                          </div>
-                        ))}
-                      </div>
-                      <div className="mt-5 md:mt-6 rounded-2xl bg-[var(--foreground)] p-4 md:p-5 text-center text-white text-sm md:text-base font-medium shadow-md">
-                        → One Connected Dashboard
+                    <div className="rounded-3xl bg-white/70 backdrop-blur-xl border border-white/60 p-6 md:p-10 lg:p-12 shadow-card relative overflow-hidden">
+                      {/* Subtle inner glow */}
+                      <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-blue-200/20 blur-2xl pointer-events-none" />
+                      <div className="relative">
+                        <div className="grid grid-cols-2 gap-3 md:gap-4">
+                          {['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe'].map((tool, i) => (
+                            <div
+                              key={tool}
+                              className="reveal visible rounded-2xl bg-white/90 border border-black/5 p-3 md:p-5 text-center text-xs md:text-sm font-semibold shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5"
+                              style={{ transitionDelay: `${i * 40}ms` }}
+                            >
+                              {tool}
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-5 md:mt-6 rounded-2xl animated-gradient p-4 md:p-5 text-center text-white text-sm md:text-base font-medium shadow-lg">
+                          → One Connected Dashboard
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -120,39 +135,41 @@ export default function Home() {
           </section>
 
           {/* Metrics */}
-          <section className="border-y border-black/5 bg-white/50">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 md:py-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <section className="relative">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 md:py-14 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {metrics.map((m, i) => (
                 <Reveal key={m.label} delay={i * 0.05}>
                   <div className="text-center md:text-left">
-                    <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--foreground)]">{m.value}</div>
-                    <div className="block text-xs sm:text-sm font-medium text-[var(--foreground)]/60 mt-1 md:mt-2">{m.label}</div>
+                    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-text">{m.value}</div>
+                    <div className="mt-1.5 md:mt-2 text-xs sm:text-sm font-medium text-[var(--foreground)]/55">{m.label}</div>
                   </div>
                 </Reveal>
               ))}
             </div>
+            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
           </section>
 
           {/* Tools We Work With */}
-          <section className="py-12 md:py-20">
+          <section className="py-12 md:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-5">
                   We work with the tools you already use
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
-                <p className="max-w-3xl text-base md:text-lg leading-relaxed text-[var(--foreground)]/70">
+                <p className="max-w-3xl text-base md:text-lg leading-relaxed text-[var(--foreground)]/65">
                   No rip-and-replace. We connect your existing CRM, marketing, sales, and payment platforms so everything works together.
-                  If you're using Salesforce, GoHighLevel, Chargebee, or Google Sheets — we make them talk to each other.
+                  If you&apos;re using Salesforce, GoHighLevel, Chargebee, or Google Sheets — we make them talk to each other.
                 </p>
               </Reveal>
               <Reveal delay={0.2}>
-                <div className="mt-8 md:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-6">
+                <div className="mt-10 md:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-5 stagger">
                   {['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe', 'Zapier', 'Mailchimp'].map((tool) => (
                     <div
                       key={tool}
-                      className="rounded-2xl bg-white/70 border border-black/5 p-4 md:p-8 text-center text-sm md:text-base font-medium shadow-sm transition hover:shadow-md hover:-translate-y-0.5"
+                      className="rounded-2xl bg-white/70 backdrop-blur border border-black/5 p-4 md:p-6 text-center text-sm md:text-base font-medium shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5"
                     >
                       {tool}
                     </div>
@@ -163,36 +180,35 @@ export default function Home() {
           </section>
 
           {/* Client Stories */}
-          <section className="py-12 md:py-20 bg-gradient-to-b from-white/50 to-white/80">
+          <section className="py-12 md:py-24 relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent -z-10" />
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
-                <div className="text-center mb-8 md:mb-14">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-wide uppercase mb-4">
+                <div className="text-center mb-10 md:mb-16">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-4 border border-blue-100/60">
                     Testimonials
                   </span>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                     Client stories.
                   </h2>
-                  <p className="mt-3 text-sm md:text-lg text-[var(--foreground)]/60 max-w-2xl mx-auto">
-                    Real results from UK businesses we've helped connect, automate, and grow.
+                  <p className="mt-3 text-sm md:text-base text-[var(--foreground)]/60 max-w-2xl mx-auto">
+                    Real results from UK businesses we&apos;ve helped connect, automate, and grow.
                   </p>
                 </div>
               </Reveal>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
                 {testimonials.map((t, i) => (
                   <Reveal key={t.author} delay={i * 0.1}>
-                    <div className="group relative rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
+                    <div className="group relative rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-6 md:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 flex flex-col h-full">
                       {/* Quote mark */}
                       <div className="absolute top-6 right-6 text-6xl md:text-7xl leading-none font-serif text-blue-100 select-none transition group-hover:text-blue-200">
                         &rdquo;
                       </div>
-                      {/* Stars */}
-                      <div className="flex gap-1 mb-5">
-                        {[1, 2, 3, 4, 5].map((s) => (
-                          <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#1566B9">
-                            <path d="M12 2l2.39 7.36H22l-6.19 4.5L18.2 21 12 16.5 5.8 21l2.39-7.14L2 9.36h7.61z" />
-                          </svg>
-                        ))}
+                      {/* Avatar */}
+                      <div className="relative z-10 mb-5">
+                        <div className="w-12 h-12 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 border border-black/5 shadow-sm">
+                          <img src={t.image} alt={t.author} className="h-full w-full object-cover" />
+                        </div>
                       </div>
                       {/* Quote */}
                       <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/80 flex-1 relative z-10">
@@ -202,7 +218,7 @@ export default function Home() {
                       <div className="my-5 md:my-6 h-px bg-gradient-to-r from-blue-100 via-blue-50 to-transparent" />
                       {/* Author */}
                       <div className="flex items-center gap-3">
-                        <div className="w-11 h-11 md:w-12 md:h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-base shadow-sm">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm">
                           {t.author.charAt(0)}
                         </div>
                         <div>
@@ -218,7 +234,7 @@ export default function Home() {
                 <div className="text-center mt-8 md:mt-12">
                   <Link
                     href="/case-studies"
-                    className="inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-white hover:bg-[var(--foreground)]/90 transition shadow-sm"
+                    className="btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium shadow-glow"
                   >
                     View All Case Studies
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -231,11 +247,11 @@ export default function Home() {
           </section>
 
           {/* How We Work */}
-          <section className="py-12 md:py-20">
+          <section className="py-12 md:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3 md:mb-4">How We Work</h2>
-                <p className="mb-8 md:mb-12 max-w-3xl text-base md:text-lg text-[var(--foreground)]/70">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3 md:mb-4">How We Work</h2>
+                <p className="mb-8 md:mb-12 max-w-3xl text-base md:text-lg text-[var(--foreground)]/65">
                   At DataLift, everything we do is guided by one principle: make your data work for you, not the other way around.
                 </p>
               </Reveal>
@@ -247,13 +263,13 @@ export default function Home() {
                   { num: '4', title: 'AI That Actually Helps:', desc: 'We build practical AI tools — smart summaries, lead scoring, predictive insights — that your non-technical team can use.', icon: '🤖' },
                 ].map((item, i) => (
                   <Reveal key={item.title} delay={i * 0.08}>
-                    <div className="flex gap-5 rounded-3xl bg-white/70 border border-black/5 p-5 sm:p-6 md:p-8 shadow-sm transition hover:shadow-md">
-                      <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 text-2xl md:text-3xl">
+                    <div className="group flex gap-5 rounded-3xl bg-white/70 backdrop-blur border border-black/5 p-5 sm:p-6 md:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5">
+                      <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 text-2xl md:text-3xl shadow-sm">
                         {item.icon}
                       </div>
                       <div>
                         <h3 className="text-lg md:text-xl font-semibold">{item.title}</h3>
-                        <p className="mt-2 text-sm md:text-base text-[var(--foreground)]/70 leading-relaxed">{item.desc}</p>
+                        <p className="mt-2 text-sm md:text-base text-[var(--foreground)]/65 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   </Reveal>
@@ -263,13 +279,14 @@ export default function Home() {
           </section>
 
           {/* Pricing Models */}
-          <section className="py-12 md:py-20 bg-white/50">
+          <section className="py-12 md:py-24 relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent -z-10" />
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <Reveal>
-                <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 md:mb-6">Two Ways to Work With Us</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-5">Two Ways to Work With Us</h2>
               </Reveal>
               <Reveal delay={0.1}>
-                <p className="max-w-3xl text-base md:text-lg leading-relaxed text-[var(--foreground)]/70">
+                <p className="max-w-3xl text-base md:text-lg leading-relaxed text-[var(--foreground)]/65">
                   Whether you need a quick fix or a full systems overhaul, we offer transparent hourly and monthly packages — designed for UK businesses.
                 </p>
               </Reveal>
@@ -298,21 +315,31 @@ export default function Home() {
                       'Proactive partnership: Fixed monthly billing with ongoing monitoring and improvements.',
                       'Full platform: Connected systems, live dashboards, automated workflows, and AI tools.',
                     ],
+                    recommended: true,
                   },
                 ].map((plan, i) => (
                   <Reveal key={plan.name} delay={i * 0.08}>
-                    <div className="rounded-3xl bg-white border border-black/5 p-6 sm:p-8 shadow-sm flex flex-col transition hover:shadow-md">
+                    <div
+                      className={`rounded-3xl bg-white/80 backdrop-blur border p-6 sm:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5 flex flex-col h-full relative ${
+                        plan.recommended ? 'border-blue-200 shadow-[0_8px_32px_rgba(21,102,185,0.12)]' : 'border-black/5'
+                      }`}
+                    >
+                      {plan.recommended && (
+                        <span className="absolute -top-3 left-6 px-3 py-1 rounded-full animated-gradient text-white text-xs font-semibold shadow-md">
+                          Recommended
+                        </span>
+                      )}
                       <div className="flex items-center gap-3">
                         <span className="text-lg font-semibold text-[var(--accent)]">DataLift</span>
                         <span className="text-lg font-semibold">{plan.name}</span>
                       </div>
-                      <div className="h-40 md:h-44 w-full flex items-center justify-center">
+                      <div className="h-40 md:h-44 w-full flex items-center justify-center mt-4">
                         <img src={plan.image} alt={`DataLift ${plan.name}`} className="h-full w-full object-contain" />
                       </div>
-                      <p className="mt-5 text-sm md:text-base text-[var(--foreground)]/70">{plan.desc}</p>
+                      <p className="mt-5 text-sm md:text-base text-[var(--foreground)]/65">{plan.desc}</p>
                       <ul className="mt-5 md:mt-6 space-y-3">
                         {plan.features.map((f) => (
-                          <li key={f} className="flex gap-3 text-sm leading-relaxed text-[var(--foreground)]/90">
+                          <li key={f} className="flex gap-3 text-sm leading-relaxed text-[var(--foreground)]/85">
                             <span className="mt-0.5 inline-flex h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />
                             <span dangerouslySetInnerHTML={{ __html: f.replace(/^.+?: /, '<strong>$&</strong>') }} />
                           </li>
@@ -320,11 +347,15 @@ export default function Home() {
                       </ul>
                       <div className="mt-7 md:mt-8 flex items-baseline gap-1">
                         <span className="text-3xl md:text-4xl font-bold">{plan.price}</span>
-                        <span className="text-sm md:text-base text-[var(--foreground)]/60">{plan.sub}</span>
+                        <span className="text-sm md:text-base text-[var(--foreground)]/55">{plan.sub}</span>
                       </div>
                       <Link
                         href={plan.name === 'Hourly' ? '/datalift-hourly' : '/datalift-monthly'}
-                        className="mt-5 md:mt-6 inline-flex items-center justify-center rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-medium text-white hover:bg-[var(--foreground)]/90 transition"
+                        className={`mt-5 md:mt-6 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition shadow-sm ${
+                          plan.recommended
+                            ? 'animated-gradient text-white hover:opacity-90 shadow-glow'
+                            : 'btn-primary'
+                        }`}
                       >
                         Learn More About DataLift {plan.name}
                       </Link>
@@ -341,7 +372,7 @@ export default function Home() {
               <Reveal>
                 <Link
                   href="/datalift-workshops"
-                  className="inline-flex items-center justify-center rounded-full border border-[var(--foreground)]/20 px-6 py-3.5 text-sm font-medium hover:bg-[var(--foreground)]/5 transition"
+                  className="inline-flex items-center justify-center rounded-full border border-[var(--foreground)]/15 bg-white/60 backdrop-blur px-6 py-3.5 text-sm font-medium transition hover:bg-white/80 shadow-card hover:shadow-card-hover"
                 >
                   Explore Our Team Workshops & Training
                 </Link>
@@ -350,15 +381,15 @@ export default function Home() {
           </section>
 
           {/* Blog */}
-          <section className="py-12 md:py-20">
+          <section className="py-12 md:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 md:mb-10 gap-4">
                 <Reveal>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Blog</h2>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">Blog</h2>
                 </Reveal>
                 <Link
                   href="/blog"
-                  className="inline-flex rounded-full border border-[var(--foreground)]/20 px-5 py-2.5 text-sm font-medium hover:bg-[var(--foreground)]/5 self-start sm:self-auto"
+                  className="inline-flex rounded-full border border-[var(--foreground)]/15 bg-white/60 backdrop-blur px-5 py-2.5 text-sm font-medium transition hover:bg-white/80 shadow-card self-start sm:self-auto"
                 >
                   View All Articles
                 </Link>
@@ -366,18 +397,19 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
                 {blogPosts.map((post, i) => (
                   <Reveal key={post.title} delay={i * 0.08}>
-                    <div className="group rounded-3xl bg-white border border-black/5 p-4 shadow-sm transition hover:shadow-md">
-                      <div className="aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100">
-                        <img src={post.image} alt={post.title} className="h-full w-full object-cover transition group-hover:scale-105" />
+                    <div className="group rounded-3xl bg-white/80 backdrop-blur border border-black/5 overflow-hidden shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5">
+                      <div className="aspect-video w-full overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 relative">
+                        <img src={post.image} alt={post.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                       </div>
-                      <div className="mt-4">
-                        <span className="inline-block rounded-full border border-black/10 px-3 py-1 text-xs font-medium">{post.tag}</span>
+                      <div className="p-5 md:p-6">
+                        <span className="inline-block rounded-full border border-black/10 px-3 py-1 text-xs font-medium mb-3">{post.tag}</span>
+                        <h3 className="text-base md:text-lg font-semibold leading-snug">{post.title}</h3>
+                        <p className="mt-2 text-sm text-[var(--foreground)]/65 leading-relaxed">{post.desc}</p>
+                        <a href="#" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] group/link">
+                          Read Article
+                          <span className="transition-transform group-hover/link:translate-x-0.5">→</span>
+                        </a>
                       </div>
-                      <h3 className="mt-3 text-base md:text-lg font-semibold leading-snug">{post.title}</h3>
-                      <p className="mt-2 text-sm text-[var(--foreground)]/70 leading-relaxed">{post.desc}</p>
-                      <a href="#" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)]">
-                        Read Article <span>→</span>
-                      </a>
                     </div>
                   </Reveal>
                 ))}
@@ -386,17 +418,18 @@ export default function Home() {
           </section>
 
           {/* Bottom CTA */}
-          <section className="relative overflow-hidden bg-white/50">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <section className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent -z-10" />
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               <Reveal>
                 <div>
-                  <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">Ready to lift your business?</h2>
-                  <p className="mt-4 max-w-xl text-base md:text-lg text-[var(--foreground)]/70">
-                    Book a free 30-minute consultation. We'll look at your systems and show you exactly where data and automation can save you time.
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">Ready to lift your business?</h2>
+                  <p className="mt-4 md:mt-6 max-w-xl text-base md:text-lg text-[var(--foreground)]/65 leading-relaxed">
+                    Book a free 30-minute consultation. We&apos;ll look at your systems and show you exactly where data and automation can save you time.
                   </p>
                   <a
                     href="#"
-                    className="mt-6 md:mt-8 inline-flex items-center justify-center rounded-full bg-[var(--foreground)] px-6 py-3.5 text-sm font-medium text-white hover:bg-[var(--foreground)]/90 shadow-sm transition"
+                    className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 sm:py-4 text-sm font-medium shadow-glow mt-6 md:mt-8"
                   >
                     Book a Free Consultation
                   </a>
@@ -407,8 +440,9 @@ export default function Home() {
                   <img
                     src="/assets/cta-illustration.png"
                     alt="DataLift illustration"
-                    className="h-64 md:h-80 w-full object-contain"
+                    className="h-64 md:h-80 lg:h-96 w-full object-contain relative z-10"
                   />
+                  <div className="absolute -inset-8 bg-gradient-to-br from-blue-100/20 to-indigo-100/20 blur-2xl -z-10" />
                 </div>
               </Reveal>
             </div>
