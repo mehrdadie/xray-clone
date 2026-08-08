@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 function FooterLinks({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
@@ -61,6 +62,11 @@ const socials = [
 ];
 
 export default function SiteFooter() {
+  const [email, setEmail] = useState('');
+  const newsletterHref = email
+    ? `mailto:hello@datalift.co.uk?subject=Newsletter%20signup&body=I%20would%20like%20to%20join%20the%20DataLift%20newsletter.%20Email:%20${encodeURIComponent(email)}`
+    : '#';
+
   return (
     <footer className="relative bg-[var(--foreground)] text-white overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--accent),_transparent_60%)]" />
@@ -102,12 +108,17 @@ export default function SiteFooter() {
           >
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               className="w-full sm:w-72 rounded-full border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:bg-white/15 transition"
             />
-            <button className="rounded-full bg-white px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-white/90 shrink-0 transition">
+            <Link
+              href={newsletterHref}
+              className="rounded-full bg-white px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-white/90 shrink-0 transition"
+            >
               →
-            </button>
+            </Link>
           </form>
         </div>
       </div>

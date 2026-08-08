@@ -36,7 +36,7 @@ const caseStudies = [
     quote:
       "We had disconnected systems everywhere — CRM, marketing, payments, spreadsheets. DataLift built a central dashboard and automated the data flow. Our team now focuses on selling, not admin.",
     problem:
-      "An online education company offering courses and certifications had a patchwork of disconnected tools: a CRM for leads, a separate marketing platform for email campaigns, a payment processor for course fees, and multiple Google Sheets tracking student progress. Data was inconsistent across systems — a student might show as 'paid' in one sheet but 'pending' in another. The sales director had no single view of revenue, pipeline, or student status. Monthly reporting took 3 days of manual spreadsheet work.",
+      "An online education company offering courses and certifications had disconnected tools: a CRM for leads, a marketing platform for email, a payment processor for course fees, and multiple Google Sheets tracking student progress. A student could show as 'paid' in one sheet and 'pending' in another. The sales director had no single view of revenue, pipeline, or student status. Monthly reporting took 3 days of manual spreadsheet work.",
     solution:
       "DataLift built a unified data platform by connecting all their systems through n8n automation workflows. Lead data from the CRM was automatically enriched with payment status from the billing system and course progress from the LMS. A real-time dashboard was created showing pipeline value, monthly recurring revenue, student enrollment numbers, and course completion rates — all updated automatically. Monthly reporting was reduced from 3 days to 15 minutes of reviewing the dashboard.",
     results: [
