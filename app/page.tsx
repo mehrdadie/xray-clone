@@ -45,6 +45,8 @@ const toolImageMap: Record<string, string> = {
   'Google Sheets': '/assets/tool-google-sheets.png',
   n8n: '/assets/tool-n8n.png',
   Stripe: '/assets/tool-stripe.png',
+  Zapier: '/assets/tool-zapier.png',
+  Mailchimp: '/assets/tool-mailchimp.png',
 };
 
 const toolFallbackMap: Record<string, string> = {

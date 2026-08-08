@@ -10,10 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy to Vercel
-        uses: vercel/action@v2
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: team_AVLxcG288EDyGQsKABK9cLeI
-          vercel-project-id: prj_2dl4CfWhVu4kfj9bKVxtI3YalWoi
-          vercel-args: '--prod'
+      - name: Deploy to Vercel with latest CLI
+        run: npx vercel@latest deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --cwd=${{ github.workspace }}
