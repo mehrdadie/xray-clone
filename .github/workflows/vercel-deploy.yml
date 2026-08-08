@@ -3,8 +3,6 @@ name: Deploy to Vercel
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
 
 jobs:
   deploy:
@@ -12,17 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel@latest
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ${{ github.workspace }}
-
-      - name: Build Project Artifacts
-        run: vercel build --yes --token=${{ secrets.VERCEL_TOKEN }} --prod
-        working-directory: ${{ github.workspace }}
-
-      - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --yes --token=${{ secrets.VERCEL_TOKEN }} --prod
-        working-directory: ${{ github.workspace }}
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: team_AVLxcG288EDyGQsKABK9cLeI
+          vercel-project-id: prj_2dl4CfWhVu4kfj9bKVxtI3YalWoi
+          vercel-args: '--prod'
