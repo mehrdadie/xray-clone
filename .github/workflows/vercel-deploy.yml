@@ -10,11 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install latest Vercel CLI
-        run: npm install -g vercel@latest
-
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
+        uses: vercel/action@v2
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: team_AVLxcG288EDyGQsKABK9cLeI
