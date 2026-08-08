@@ -6,6 +6,7 @@ import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import Link from 'next/link';
 import Image from 'next/image';
+import { blogPosts } from './lib/posts';
 
 const metrics = [
   { value: '50+', label: 'Systems Connected' },
@@ -20,21 +21,18 @@ const testimonials = [
       "DataLift connected our Salesforce, GoHighLevel, and Chargebee so everything just works. Our sales team no longer wastes hours copying data between systems. It's all automated, and we can see everything on one dashboard.",
     author: 'Operations Manager',
     title: 'Property Training Company, Essex',
-    image: '/assets/testimonial-kelsey.png',
   },
   {
     quote:
       "We had disconnected systems everywhere — CRM, marketing, payments, spreadsheets. DataLift built a central dashboard and automated the data flow. Our team now focuses on selling, not admin.",
     author: 'Sales Director',
     title: 'Education Company, UK',
-    image: '/assets/testimonial-karan.png',
   },
   {
     quote:
       'The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress — all pulled from Salesforce and Chargebee automatically. It changed how we make decisions.',
     author: 'Managing Director',
     title: 'Trading Education Company, London',
-    image: '/assets/testimonial-michelle.png',
   },
 ];
 
@@ -62,27 +60,6 @@ const toolFallbackMap: Record<string, string> = {
 
 const heroTools = ['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe'];
 const allTools = ['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe', 'Zapier', 'Mailchimp'];
-
-const blogPosts = [
-  {
-    title: 'How to Connect Salesforce With Your Marketing Tools (Without a Developer)',
-    tag: 'Integration',
-    image: '/assets/blog-1.png',
-    desc: 'A practical guide to syncing Salesforce with GoHighLevel, Mailchimp, and other marketing platforms — no code required.',
-  },
-  {
-    title: 'Why Your CRM and Payment System Should Talk to Each Other',
-    tag: 'Automation',
-    image: '/assets/blog-2.png',
-    desc: 'Disconnected CRM and billing means lost revenue and wasted hours. Here is how to fix it with tools you already have.',
-  },
-  {
-    title: 'Building AI Dashboards for Non-Technical Teams',
-    tag: 'AI',
-    image: '/assets/blog-3.png',
-    desc: 'How UK businesses use AI-powered dashboards to turn raw data from multiple systems into clear, actionable decisions.',
-  },
-];
 
 function ToolBadge({ name, size = 'md' }: { name: string; size?: 'sm' | 'md' }) {
   const imgSrc = toolImageMap[name];
@@ -426,7 +403,7 @@ export default function Home() {
                         <span className="inline-block rounded-full border border-black/10 px-3 py-1 text-xs font-medium mb-3">{post.tag}</span>
                         <h3 className="text-base md:text-lg font-semibold leading-snug">{post.title}</h3>
                         <p className="mt-2 text-sm text-[var(--foreground)]/65 leading-relaxed">{post.desc}</p>
-                        <a href="/blog" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] group/link">
+                        <a href={`/blog/${post.slug}`} className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] group/link">
                           Read Article
                           <span className="transition-transform group-hover/link:translate-x-0.5">→</span>
                         </a>
