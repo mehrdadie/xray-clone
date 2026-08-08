@@ -20,21 +20,21 @@ const testimonials = [
       "DataLift connected our Salesforce, GoHighLevel, and Chargebee so everything just works. Our sales team no longer wastes hours copying data between systems. It's all automated, and we can see everything on one dashboard.",
     author: 'Operations Manager',
     title: 'Property Training Company, Essex',
-    image: '/assets/testimonial-kelsey.svg',
+    image: '/assets/testimonial-kelsey.png',
   },
   {
     quote:
       "We had disconnected systems everywhere — CRM, marketing, payments, spreadsheets. DataLift built a central dashboard and automated the data flow. Our team now focuses on selling, not admin.",
     author: 'Sales Director',
     title: 'Education Company, UK',
-    image: '/assets/testimonial-karan.svg',
+    image: '/assets/testimonial-karan.png',
   },
   {
     quote:
       'The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress — all pulled from Salesforce and Chargebee automatically. It changed how we make decisions.',
     author: 'Managing Director',
     title: 'Trading Education Company, London',
-    image: '/assets/testimonial-michelle.svg',
+    image: '/assets/testimonial-michelle.png',
   },
 ];
 
@@ -236,7 +236,7 @@ export default function Home() {
                       </div>
                       <div className="relative z-10 mb-5">
                         <div className="w-12 h-12 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 border border-black/5 shadow-sm">
-                          <img src={t.image} alt={t.author} className="h-full w-full object-cover" />
+                          <Image src={t.image} alt={t.author} width={48} height={48} className="h-full w-full object-cover" loading="lazy" />
                         </div>
                       </div>
                       <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/80 flex-1 relative z-10">
