@@ -38,6 +38,29 @@ const testimonials = [
   },
 ];
 
+const toolImageMap: Record<string, string> = {
+  Salesforce: '/assets/tool-salesforce.png',
+  GoHighLevel: '/assets/tool-gohighlevel.png',
+  Chargebee: '/assets/tool-chargebee.png',
+  'Google Sheets': '/assets/tool-google-sheets.png',
+  n8n: '/assets/tool-n8n.png',
+  Stripe: '/assets/tool-stripe.png',
+};
+
+const toolFallbackMap: Record<string, string> = {
+  Salesforce: '#1566B9',
+  GoHighLevel: '#3b82f6',
+  Chargebee: '#0d9488',
+  'Google Sheets': '#16a34a',
+  n8n: '#dc2626',
+  Stripe: '#7c3aed',
+  Zapier: '#ff4f00',
+  Mailchimp: '#ffe01b',
+};
+
+const heroTools = ['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe'];
+const allTools = ['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe', 'Zapier', 'Mailchimp'];
+
 const blogPosts = [
   {
     title: 'How to Connect Salesforce With Your Marketing Tools (Without a Developer)',
@@ -59,6 +82,27 @@ const blogPosts = [
   },
 ];
 
+function ToolBadge({ name, size = 'md' }: { name: string; size?: 'sm' | 'md' }) {
+  const imgSrc = toolImageMap[name];
+  const bg = toolFallbackMap[name] || '#0E1C2D';
+  const isSmall = size === 'sm';
+  return (
+    <div
+      className={`reveal visible rounded-2xl bg-white/90 border border-black/5 p-3 md:p-5 text-center shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5`}
+      style={{ transitionDelay: `${heroTools.indexOf(name) * 40}ms` }}
+    >
+      <div className={`mx-auto flex items-center justify-center ${isSmall ? 'h-8 w-8' : 'h-10 w-10 md:h-12 md:w-12'} rounded-xl bg-white border border-black/5 shadow-sm overflow-hidden mb-2 md:mb-3`}>
+        {imgSrc ? (
+          <Image src={imgSrc} alt={name} width={isSmall ? 32 : 48} height={isSmall ? 32 : 48} className="h-full w-full object-contain p-1" />
+        ) : (
+          <span className="text-xs md:text-sm font-semibold" style={{ color: bg }}>{name[0]}</span>
+        )}
+      </div>
+      <div className={`font-semibold ${isSmall ? 'text-xs md:text-sm' : 'text-xs md:text-sm'}`}>{name}</div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <SmoothScroll>
@@ -67,7 +111,6 @@ export default function Home() {
         <main className="flex-1">
           {/* Hero */}
           <section className="relative overflow-hidden">
-            {/* Animated gradient orbs */}
             <div className="absolute inset-0 -z-10" aria-hidden="true">
               <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl animate-[gradientShift_10s_ease-in-out_infinite]" />
               <div className="absolute top-24 right-0 h-80 w-80 rounded-full bg-indigo-200/25 blur-3xl animate-[gradientShift_12s_ease-in-out_infinite]" />
@@ -109,23 +152,14 @@ export default function Home() {
                 <Reveal delay={0.15}>
                   <div className="relative">
                     <div className="rounded-3xl bg-white/70 backdrop-blur-xl border border-white/60 p-6 md:p-10 lg:p-12 shadow-card relative overflow-hidden">
-                      {/* Subtle inner glow */}
                       <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-blue-200/20 blur-2xl pointer-events-none" />
-                      <div className="relative">
-                        <div className="grid grid-cols-2 gap-3 md:gap-4">
-                          {['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe'].map((tool, i) => (
-                            <div
-                              key={tool}
-                              className="reveal visible rounded-2xl bg-white/90 border border-black/5 p-3 md:p-5 text-center text-xs md:text-sm font-semibold shadow-sm transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5"
-                              style={{ transitionDelay: `${i * 40}ms` }}
-                            >
-                              {tool}
-                            </div>
-                          ))}
-                        </div>
-                        <div className="mt-5 md:mt-6 rounded-2xl animated-gradient p-4 md:p-5 text-center text-white text-sm md:text-base font-medium shadow-lg">
-                          → One Connected Dashboard
-                        </div>
+                      <div className="relative grid grid-cols-2 gap-3 md:gap-4">
+                        {heroTools.map((tool) => (
+                          <ToolBadge key={tool} name={tool} size="md" />
+                        ))}
+                      </div>
+                      <div className="mt-5 md:mt-6 rounded-2xl animated-gradient p-4 md:p-5 text-center text-white text-sm md:text-base font-medium shadow-lg">
+                        → One Connected Dashboard
                       </div>
                     </div>
                   </div>
@@ -166,7 +200,7 @@ export default function Home() {
               </Reveal>
               <Reveal delay={0.2}>
                 <div className="mt-10 md:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-5 stagger">
-                  {['Salesforce', 'GoHighLevel', 'Chargebee', 'Google Sheets', 'n8n', 'Stripe', 'Zapier', 'Mailchimp'].map((tool) => (
+                  {allTools.map((tool) => (
                     <div
                       key={tool}
                       className="rounded-2xl bg-white/70 backdrop-blur border border-black/5 p-4 md:p-6 text-center text-sm md:text-base font-medium shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5"
@@ -200,23 +234,18 @@ export default function Home() {
                 {testimonials.map((t, i) => (
                   <Reveal key={t.author} delay={i * 0.1}>
                     <div className="group relative rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-6 md:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 flex flex-col h-full">
-                      {/* Quote mark */}
                       <div className="absolute top-6 right-6 text-6xl md:text-7xl leading-none font-serif text-blue-100 select-none transition group-hover:text-blue-200">
                         &rdquo;
                       </div>
-                      {/* Avatar */}
                       <div className="relative z-10 mb-5">
                         <div className="w-12 h-12 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 border border-black/5 shadow-sm">
                           <img src={t.image} alt={t.author} className="h-full w-full object-cover" />
                         </div>
                       </div>
-                      {/* Quote */}
                       <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/80 flex-1 relative z-10">
                         {t.quote}
                       </p>
-                      {/* Divider */}
                       <div className="my-5 md:my-6 h-px bg-gradient-to-r from-blue-100 via-blue-50 to-transparent" />
-                      {/* Author */}
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm">
                           {t.author.charAt(0)}
