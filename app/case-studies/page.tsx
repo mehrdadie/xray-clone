@@ -6,68 +6,58 @@ import Link from 'next/link';
 
 const caseStudies = [
   {
-    id: 'property-training-toronto',
+    id: 'property-training-essex',
     company: 'Property Training Company',
-    location: 'Toronto, Canada',
+    location: 'Essex, UK',
     industry: 'Property Education & Training',
     author: 'Operations Manager',
     avatar: 'O',
-    quote:
-      "DataLift connected our Salesforce, GoHighLevel, and Chargebee so everything just works. Our sales team no longer wastes hours copying data between systems. It's all automated, and we can see everything on one dashboard.",
-    problem:
-      "This property training company ran events and webinars for aspiring investors. Their sales pipeline lived in Salesforce, marketing campaigns in GoHighLevel, and recurring course payments in Chargebee — but none of these systems talked to each other. The sales team spent 15+ hours per week manually copying booking data between platforms, reconciling payments with spreadsheets, and chasing missing customer records. Lead follow-up was slow because the team couldn't see which prospects had already paid or attended previous events.",
-    solution:
-      "DataLift connected Salesforce, GoHighLevel, and Chargebee into a single automated data flow. When a lead registered for an event in GoHighLevel, their record was automatically created or updated in Salesforce. When a payment was processed in Chargebee, the booking status was synced to Salesforce in real time. A central dashboard was built showing live event bookings, revenue, and attendee numbers — all pulled automatically from the connected systems.",
+    quote: 'DataLift connected our Salesforce, GoHighLevel, and Chargebee so everything just works. Our sales team no longer wastes hours copying data between systems.',
+    problem: 'Salesforce, GoHighLevel, and Chargebee were disconnected. The team spent 15+ hours per week copying booking data and reconciling payments manually.',
+    solution: 'We connected all three systems into one automated flow and built a dashboard showing live bookings, revenue, and attendee numbers.',
     results: [
-      { metric: '15+ hrs', label: 'Saved per week on manual data entry' },
-      { metric: '100%', label: 'Payment-to-CRM sync accuracy' },
-      { metric: '3x', label: 'Faster lead follow-up with unified view' },
+      { metric: '15+ hrs', label: 'Saved per week' },
+      { metric: '100%', label: 'Sync accuracy' },
+      { metric: '3x', label: 'Faster follow-up' },
     ],
     tools: ['Salesforce', 'GoHighLevel', 'Chargebee'],
     services: ['System Connection', 'Real-time Dashboard', 'Workflow Automation'],
   },
   {
-    id: 'elearning-sydney',
+    id: 'elearning-uk',
     company: 'E-Learning Platform',
-    location: 'Sydney, Australia',
-    industry: 'Online Education & E-Learning',
+    location: 'UK',
+    industry: 'Online Education',
     author: 'Sales Director',
     avatar: 'S',
-    quote:
-      "We had disconnected systems everywhere — CRM, marketing, payments, spreadsheets. DataLift built a central dashboard and automated the data flow. Our team now focuses on selling, not admin.",
-    problem:
-      "An online education company offering courses and certifications had disconnected tools: a CRM for leads, a marketing platform for email, a payment processor for course fees, and multiple Google Sheets tracking student progress. A student could show as 'paid' in one sheet and 'pending' in another. The sales director had no single view of revenue, pipeline, or student status. Monthly reporting took 3 days of manual spreadsheet work.",
-    solution:
-      "DataLift built a unified data platform by connecting all their systems through n8n automation workflows. Lead data from the CRM was automatically enriched with payment status from the billing system and course progress from the LMS. A real-time dashboard was created showing pipeline value, monthly recurring revenue, student enrollment numbers, and course completion rates — all updated automatically. Monthly reporting was reduced from 3 days to 15 minutes of reviewing the dashboard.",
+    quote: 'We had disconnected systems everywhere. DataLift built a central dashboard and automated the data flow. Our team now focuses on selling, not admin.',
+    problem: 'CRM, marketing, payments, and Google Sheets were out of sync. Monthly reporting took 3 days of manual spreadsheet work.',
+    solution: 'We unified all systems through automation and created a real-time dashboard for pipeline, revenue, and student progress.',
     results: [
-      { metric: '3 days → 15 min', label: 'Monthly reporting time' },
-      { metric: 'Zero', label: 'Data inconsistencies across systems' },
-      { metric: '40+', label: 'Automated workflows deployed' },
+      { metric: '3 days -> 15 min', label: 'Reporting time' },
+      { metric: 'Zero', label: 'Data inconsistencies' },
+      { metric: '40+', label: 'Automated workflows' },
     ],
     tools: ['CRM', 'Marketing Platform', 'Payment Processor', 'Google Sheets', 'n8n'],
-    services: ['Data Platform Build', 'Real-time Dashboard', 'Workflow Automation', 'System Integration'],
+    services: ['Data Platform Build', 'Real-time Dashboard', 'Workflow Automation'],
   },
   {
-    id: 'trading-education-dubai',
+    id: 'trading-education-london',
     company: 'Trading Education Company',
-    location: 'Dubai, UAE',
+    location: 'London, UK',
     industry: 'Financial Trading Education',
     author: 'Managing Director',
     avatar: 'M',
-    quote:
-      'The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress — all pulled from Salesforce and Chargebee automatically. It changed how we make decisions.',
-    problem:
-      "A trading education company offered live trading rooms, online courses, and in-person workshops. Their Salesforce CRM tracked leads and bookings, while Chargebee managed recurring subscriptions for their trading room access. But the managing director had no visibility into which courses were most profitable, how many active subscribers they had at any moment, or which marketing campaigns were driving the highest-value bookings. Decisions were made on gut feeling, not data. Finance spent a week each month manually reconciling Salesforce bookings with Chargebee subscriptions.",
-    solution:
-      "DataLift built a suite of real-time dashboards pulling data from both Salesforce and Chargebee automatically. The main dashboard showed live revenue (one-off course sales + recurring subscriptions), active subscriber count, booking funnel (leads → registered → paid → attended), and marketing ROI by campaign channel. A second dashboard tracked student progress and course completion rates. Automated alerts were set up for churn risk — if a subscription was cancelled in Chargebee, the CRM record was flagged automatically for the team to follow up.",
+    quote: 'The dashboards DataLift built give us real-time visibility into bookings, revenue, and student progress. It changed how we make decisions.',
+    problem: 'Salesforce and Chargebee were disconnected. Finance spent a week each month reconciling bookings and subscriptions manually.',
+    solution: 'We built real-time dashboards from Salesforce and Chargebee, plus automated churn alerts when subscriptions were cancelled.',
     results: [
-      { metric: 'Real-time', label: 'Revenue visibility (was monthly)' },
-      { metric: '1 week → 0', label: 'Monthly reconciliation eliminated' },
-      { metric: '5', label: 'Live dashboards deployed' },
-      { metric: '35%', label: 'Reduction in subscription churn' },
+      { metric: 'Real-time', label: 'Revenue visibility' },
+      { metric: '1 week -> 0', label: 'Reconciliation eliminated' },
+      { metric: '35%', label: 'Reduction in churn' },
     ],
     tools: ['Salesforce', 'Chargebee', 'n8n'],
-    services: ['Real-time Dashboards', 'Revenue Analytics', 'Churn Alert Automation', 'System Integration'],
+    services: ['Real-time Dashboards', 'Revenue Analytics', 'Churn Alert Automation'],
   },
 ];
 
@@ -107,9 +97,7 @@ export default function CaseStudiesPage() {
           <Reveal>
             <div className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-4 sm:p-6 md:p-8 shadow-card">
               <p className="text-sm md:text-base leading-relaxed text-[var(--foreground)]/70">
-                DataLift specialises in <strong>CRM integration, marketing automation, and real-time business dashboards</strong> for
-                growing companies. Our case studies show how we connect disconnected systems — Salesforce, GoHighLevel, Chargebee,
-                Stripe, and more — to automate data flow, eliminate manual reporting, and give teams a single source of truth.
+                DataLift specialises in <strong>CRM integration, marketing automation, and real-time business dashboards</strong> for growing companies. We connect disconnected systems — Salesforce, GoHighLevel, Chargebee, Stripe, and more — to automate data flow, eliminate manual reporting, and give teams a single source of truth.
               </p>
             </div>
           </Reveal>

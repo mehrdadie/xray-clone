@@ -27,7 +27,7 @@ export default function AboutUsPage() {
             <div className="rounded-3xl bg-white/80 backdrop-blur border border-black/5 p-5 sm:p-6 md:p-8 shadow-card">
               <h3 className="text-lg sm:text-xl font-semibold">What we do differently</h3>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base text-[var(--foreground)]/70 leading-relaxed">
-                We specialise in UK property education, trading education, and professional services. That focus means we understand your reporting, your compliance, and your seasonality. We don't hand you a generic integration template and walk away. We connect your exact stack, build dashboards around your actual KPIs, and train your team to maintain it.
+                We specialise in UK property education, trading education, and professional services. That focus means we understand your reporting, your compliance, and your seasonality. We connect your exact stack, build dashboards around your actual KPIs, and train your team to maintain it.
               </p>
             </div>
           </Reveal>
